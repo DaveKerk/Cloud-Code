@@ -1,6 +1,12 @@
 #home_header {
     border-radius: 25px;
-    color:lightblue;
-    height: 1000px;
-    width: 250px;
+    color:blue;
+    height: 1920px;
+    width: 500px;
+}
+#header_text {
+    color:darkblue;
+    size:50px;
+    font-family:"OCR A Extended";
+
 }
