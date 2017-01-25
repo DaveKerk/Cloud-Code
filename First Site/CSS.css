@@ -1,12 +1,21 @@
-#home_header {
-    border-radius: 25px;
-    color:blue;
-    height: 1920px;
-    width: 500px;
+#header {
+    color: darkblue;
+    size: 50px;
+    font-family: serif, "OCR A Extended", "Heavy Data";
 }
-#header_text {
-    color:darkblue;
-    size:50px;
-    font-family:"OCR A Extended";
 
+#head {
+    height: 200px;
+    width: 1000px;
+    background-color: gray;
+}
+
+#body {
+    height: 1000px;
+    width: 1000px;
+    background-color: lightcyan;
+}
+
+ul li {
+    color: black;
 }
