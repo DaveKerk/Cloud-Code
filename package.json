@@ -1,0 +1,22 @@
+{
+  "name": "cloud-code",
+  "version": "1.0.0",
+  "description": "Cloud Code",
+  "main": "null.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaveKerk/Cloud-Code.git"
+  },
+  "author": "Dave",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaveKerk/Cloud-Code/issues"
+  },
+  "homepage": "https://github.com/DaveKerk/Cloud-Code#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
