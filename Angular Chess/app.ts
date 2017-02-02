@@ -12,6 +12,10 @@ app.controller('appctrl', ['$scope', ($scope) => {
 		console.log('here');
 		$scope.asdf++;
 	}
+app.controller('appctrl', ['$scope', ($scope) => {
+	$scope.scope = 0;
+	function messenger()
+}
 
 	messenger();
 

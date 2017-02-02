@@ -6,7 +6,10 @@ app.controller('appctrl', ['$scope', function ($scope) {
             console.log('here');
             $scope.asdf++;
         }
-        messenger();
+        app.controller('appctrl', ['$scope', function ($scope) {
+                $scope.scope = 0;
+            },
+            messenger()]);
         $scope.oneError = messenger;
     }]);
 //# sourceMappingURL=app.js.map
