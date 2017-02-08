@@ -1,0 +1,3 @@
+"D:\CLion 2016.3.2\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\ouput_stuffs.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\ouput_stuffs.dir/objects.a @CMakeFiles\ouput_stuffs.dir\objects1.rsp
+C:\MinGW\bin\g++.exe  -g   -Wl,--whole-archive CMakeFiles\ouput_stuffs.dir/objects.a -Wl,--no-whole-archive  -o ouput_stuffs.exe -Wl,--out-implib,libouput_stuffs.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ouput_stuffs.dir\linklibs.rsp
