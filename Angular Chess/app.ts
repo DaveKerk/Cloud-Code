@@ -14,13 +14,10 @@ app.controller('appctrl', ['$scope', ($scope) => {
 	}
 app.controller('appctrl', ['$scope', ($scope) => {
 	$scope.scope = 0;
-	function messenger()
-}
 
-	messenger();
 
 	$scope.oneError = messenger;
-}]);
+}])
 
 
 //angular js controller//
