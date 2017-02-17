@@ -31,10 +31,15 @@
    <input type="button" value="log to output"/>
 </div>
 -->
+
 <div ng-controller="myController">
-	<input type="checkbox">
-	{{myValue}}
+	{{value}}
+	<div>
+		<input type="range" ng-model="rangeValue">
+		<div>Here is a thing. {{rangeValue}} </div>
+	</div>
 </div>
+
 <p>DISPLAY</p>
 </body>
 </html>
