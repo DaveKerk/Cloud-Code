@@ -47,11 +47,6 @@
 #define PAUSE "read -p 'Press [Enter] key to continue ...'"
 #endif
 
-<<<<<<< HEAD
-typedef double myType;
-
-=======
->>>>>>> master
 using namespace std;
 
 // 0000001111111111222222222233333333334444444444555555555566666666667777777777
@@ -67,15 +62,6 @@ template <typename T>
 inline const bool isAlmostEqual (const T value, const T base,
                                  const T tolerance=FLT_EPSILON)
 {
-<<<<<<< HEAD
-    // Verify the reasonability of the tolerance.
-    // assert is a good tool to prevent user faults that may cause bugs.
-    assert (tolerance >= 0);
-
-    // Return true if the difference is smaller than the tolerance; otherwise,
-    // false.
-    return (fabs(value - base) <= tolerance);
-=======
   // Verify the reasonability of the tolerance.
   // assert is a good tool to prevent user faults that may cause bugs.
   assert (tolerance >= 0);
@@ -83,7 +69,6 @@ inline const bool isAlmostEqual (const T value, const T base,
   // Return true if the difference is smaller than the tolerance; otherwise,
   // false.
   return (fabs(value - base) <= tolerance);
->>>>>>> master
 }
 
 // 0000001111111111222222222233333333334444444444555555555566666666667777777777
@@ -99,20 +84,6 @@ inline const bool isAlmostEqual (const T value, const T base,
 template <typename T>
 inline const T factorial (const T n, const T max_factorial=MAX_FACTORIAL)
 {
-<<<<<<< HEAD
-    // Verify that n is not bigger than the max factorial the computer can handle
-    assert (max_factorial >= n);
-
-    // Verify that the user is sending a reasonable value (i.e. can't be negative)
-    assert (n > 1);
-
-    T fact = 1; // Initialize the multiplier to 1.
-
-    // Calculate the factorial through a loop.
-    for (T i=round(n); i > 1; --i) fact *= n;
-
-    return fact; // Return the value of the factorial.
-=======
   // Verify that n is not bigger than the max factorial the computer can handle
   assert (max_factorial >= n);
 
@@ -125,7 +96,6 @@ inline const T factorial (const T n, const T max_factorial=MAX_FACTORIAL)
   for (T i=round(n); i > 1; --i) fact *= n;
 
   return fact; // Return the value of the factorial.
->>>>>>> master
 }
 
 // 0000001111111111222222222233333333334444444444555555555566666666667777777777
@@ -135,34 +105,19 @@ inline const T factorial (const T n, const T max_factorial=MAX_FACTORIAL)
 //
 const string userName()
 {
-<<<<<<< HEAD
-    string user_name("Unnamed");
-
-#if defined(_WIN32) || defined(WIN32) // Windows machine
-    TCHAR name [ UNLEN + 1 ];
-=======
   string user_name("Unnamed");
 
 #if defined(_WIN32) || defined(WIN32) // Windows machine
   TCHAR name [ UNLEN + 1 ];
->>>>>>> master
   DWORD size = UNLEN + 1;
 
   if (GetUserName( (TCHAR*)name, &size )) user_name = name;
 #else                                // Non-Windows machine (e.g. Unix)
-<<<<<<< HEAD
-    uid_t uid = geteuid();
-    struct passwd *pw = getpwuid(uid);
-    if (pw) user_name = pw->pw_name;
-#endif
-    return user_name;
-=======
   uid_t uid = geteuid();
   struct passwd *pw = getpwuid(uid);
   if (pw) user_name = pw->pw_name;
 #endif
   return user_name;
->>>>>>> master
 }
 
 // 0000001111111111222222222233333333334444444444555555555566666666667777777777
@@ -171,27 +126,6 @@ const string userName()
 // A function to calculate Euler's number (e) as the best we can using long
 // double.
 //
-<<<<<<< HEAD
-const myType calcE()
-{
-    const myType ld1 = 1.0;           // Force 1.0 to be a long double type.
-    const size_t max_fact = MAX_FACTORIAL; // Define the max factorial
-    myType e = 2;                     // Initialize e to be 2.
-
-    // Add the fractions to the initial value of e through the following loop.
-    // size_t = size type; it is equivalent to "unsigned int" in a 32-bit OS,
-    // and it is "unsigned long int" in a 64-bit OS. It is a good idea to use
-    // size_t for iteration variables.
-    for (size_t i=2; i<= max_fact; ++i)
-    {
-        // Add to e 1 divided by the factorial number of i. Also, forcing the type
-        // of factorial to be long double to increase the precision.
-        e += ld1 / ((long double) factorial((long double) i,
-                                            (long double) max_fact));
-    }
-
-    return e; // Return the calculated value of the calculated e.
-=======
 const long double calcE()
 {
   const long double ld1 = 1.0;           // Force 1.0 to be a long double type.
@@ -211,7 +145,6 @@ const long double calcE()
   }
 
   return e; // Return the calculated value of the calculated e.
->>>>>>> master
 }
 
 // 0000001111111111222222222233333333334444444444555555555566666666667777777777
@@ -223,27 +156,6 @@ const long double calcE()
 //
 const long double calcER()
 {
-<<<<<<< HEAD
-    const long double ld1 = 1.0;           // Force 1.0 to be a long double type.
-    const size_t max_fact = MAX_FACTORIAL; // Define the max factorial
-    long double e = 0;                     // Initialize e to be 0.
-
-    // Add the fractions to the initial value of e through the following loop.
-    // size_t = size type; it is equivalent to "unsigned int" in a 32-bit OS,
-    // and it is "unsigned long int" in a 64-bit OS. It is a good idea to use
-    // size_t for iteration variables.
-    for (size_t i=max_fact; i>1; --i)
-    {
-        // Add to e 1 divided by the factorial number of i. Also, forcing the type
-        // of factorial to be long double to increase the precision.
-        e += ld1 / ((long double) factorial((long double) i,
-                                            (long double) max_fact));
-    }
-
-    e += 2;
-
-    return e; // Return the calculated value of the calculated e.
-=======
   const long double ld1 = 1.0;           // Force 1.0 to be a long double type.
   const size_t max_fact = MAX_FACTORIAL; // Define the max factorial
   long double e = 0;                     // Initialize e to be 0.
@@ -263,7 +175,6 @@ const long double calcER()
   e += 2;
 
   return e; // Return the calculated value of the calculated e.
->>>>>>> master
 }
 // 0000001111111111222222222233333333334444444444555555555566666666667777777777
 // 4567890123456789012345678901234567890123456789012345678901234567890123456789
@@ -272,42 +183,6 @@ const long double calcER()
 //
 int main(int argc, char * argv[])
 {
-<<<<<<< HEAD
-    // Define some variables. It is a good idea to make them constants if they
-    // will not be modified later in the program.
-    const long double e     = calcE();     // Invoke a function to calculate e.
-    const long double er    = calcER();    // Calculate e in reverse order.
-    const long double kE    = E;           // Since E is typeless, make it typed.
-    const long double diff  = kE - e;      // Calculate the difference.
-    const long double diffr = kE - er;     // Get the difference from er
-    const long double ldfe  = FLT_EPSILON; // Make a type for FLT_EPSILON
-
-    // Check if the pre-computed and calculated values of e are almost equal.
-    const bool is_almost_equal = isAlmostEqual(e, kE);
-
-    // Print user name. Then print the natural (string), computed (long double),
-    // and calculated values of e. Then, print the difference between the computed
-    // and calculated. Also, print FLT_EPSILON just to see its value.
-    printf("Hello %s.\n", userName().c_str());
-    printf("Natural    e = %s\n"    , E_STR);
-    printf("Computed   e = %.50Lf\n", kE);
-    printf("Calculated e = %.50Lf\n", e);
-    printf("Difference   = %.50Lf\n", diff);
-    printf("Reversed   e = %.50Lf\n", er);
-    printf("Difference R = %.50Lf\n", diffr);
-    printf("FLT_EPSILON  = %.50Lf\n", ldfe);
-
-    // Check if the computed and calculated values are almost equal. If they are,
-    // it will be a feat.
-    if (is_almost_equal)
-        printf("Our calculation to finding e was pretty close!\n");
-    else
-        printf("Calculation to finding e was off by %.29Lf\n", diff);
-
-    system(PAUSE);       // Pause for the user so the window doesn't disappear.
-
-    return EXIT_SUCCESS; // Since nothing went wrong, go back to the OS normally.
-=======
   // Define some variables. It is a good idea to make them constants if they
   // will not be modified later in the program.
   const long double e     = calcE();     // Invoke a function to calculate e.
@@ -342,5 +217,4 @@ int main(int argc, char * argv[])
   system(PAUSE);       // Pause for the user so the window doesn't disappear.
 
   return EXIT_SUCCESS; // Since nothing went wrong, go back to the OS normally.
->>>>>>> master
 }
