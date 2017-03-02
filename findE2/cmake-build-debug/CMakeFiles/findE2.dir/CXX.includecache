@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/david/Desktop/Cloud Code/findE2/main.cpp
+cstdio
+-
+cassert
+-
+cstdlib
+-
+cmath
+-
+cstdint
+-
+cfloat
+-
+string
+-
+iostream
+-
+windows.h
+-
+Lmcons.h
+-
+pwd.h
+-
+
