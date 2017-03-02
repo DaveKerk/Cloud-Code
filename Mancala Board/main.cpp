@@ -3,22 +3,33 @@
 
 using namespace std;
 
-int main() {
-    for (int i = 0; i <= 14; i++) {
-        if (i == 1 || i == 14) {
-            cout << setw(56) << setfill('*') << '*';
-        }
-        if (i == 7) {
-            cout << setw(2) << "* 13   ";
-            cout << setw(42) << setfill('*') << '*';
-            cout << setw(2) << "    6 *";
-        }
-        if (i == 3) {
-            cout << setw(56) << setfill("**1*2*3*4*5**") << '*';
-        }
-        cout << endl;
-    }
+int allStars() {
+    for (int i = 0; i <= 57; i++)cout << '*';
+}
 
+int lessAllStars() {
+    for (int j = 0; j <= 43; j++)cout << '*';
+}
+
+int middle() {
+    cout << "* 13   ";
+    lessAllStars();
+    cout << "    6 *";
+}
+
+int normStars(){
+    cout << '*';
+    for (int e =0; e<=7;e++)cout << setw(7) << '*';
+}
+
+int main() {
+    allStars();
+    cout << endl;
+    middle();
+    cout << endl;
+    allStars();
+    cout << endl;
+    normStars();
 
     return 0;
 }
