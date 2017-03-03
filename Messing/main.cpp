@@ -1,4 +1,6 @@
 #include <iostream>
+#include <bits/valarray_before.h>
+
 int selector;
 
 int octathorpeBlock() {
@@ -19,15 +21,15 @@ int dashBlock() {
     }
 }
 
-int blockSelect(){
-    if(selector==1){
+int blockSelect() {
+    if (selector == 1) {
         dashBlock();
     } else {
         octathorpeBlock();
     }
 }
 
-int outBoard(){
+int outBoard() {
 
 }
 
@@ -35,7 +37,12 @@ int main() {
     octathorpeBlock();
     dashBlock();
     octathorpeBlock();
-    std::cin>>selector;
+    std::cin >> selector;
     blockSelect();
     outBoard();
+    int array{
+            [1, 2, 3, 4, 5]
+            [6, 7, 8, 9, 10]
+            []
+    };
 }

@@ -7,7 +7,7 @@ int allStars() {
     for (int i = 0; i <= 57; i++)cout << '*';
 }
 
-// Straight Line on Middle Line
+// Straight Line of Stars on Middle Line
 int lessAllStars() {
     for (int j = 0; j <= 42; j++)cout << '*';
 }
@@ -43,7 +43,7 @@ int upNum() {
 // Numbers 7 Through 12
 int downNum() {
     cout << '*';
-    for (int l = 13; l >= 6; l--) {              // GO OTHER WAY WITH THIS ONE
+    for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
             cout << setw(4) << (l) << setw(3) << '*';
         } else if (l == 13) {
@@ -62,11 +62,11 @@ int main() {
         if (w == 2 || w == 3 || w == 5 || w == 6 || w == 8 || w == 9 || w == 11 || w == 12) {
             normStars();
         }
-        if (w == 7) {
-            middle();
-        }
         if (w == 4) {
             upNum();
+        }
+        if (w == 7) {
+            middle();
         }
         if (w == 10) {
             downNum();

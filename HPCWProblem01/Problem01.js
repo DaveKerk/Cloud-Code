@@ -5,5 +5,7 @@
  * HPCodeWars Problem 01
  */
 
-var judgeName=prompt("What is your name?");
-console.log(("Greetings, O Honorable") (judgeName) ("the Magnificent! May I kiss your signet ring?"));
+var judgeName;
+input(type = text)
+judgeName;
+return (judgeName);
