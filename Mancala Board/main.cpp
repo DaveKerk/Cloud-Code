@@ -1,6 +1,22 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
+
+//The array.
+int rocks[14];
+//MESS WITH SCORE FOR LOOPS
+//Sets the initial count of rocks in each hold.
+int initialRocks() {
+    //Define each value.
+    rocks[0]=4;
+    rocks[1]=4;
+    rocks[2]=4;
+    rocks[3]=4;
+    rocks[4]=4;
+    rocks[5]=4;
+    rocks[8]=4;
+}
 
 // Top and Bottom
 int allStars() {
@@ -54,24 +70,80 @@ int downNum() {
     }
 }
 
-int main() {
+//This will display the amount of rocks in each hold. LINE 5
+int scoreDisplayUp() {
+    cout << '*' << " ";
+    for (int k = 0; k <= 7; k++) {
+        if (k <= 6 && k >= 1) {
+            cout << setw(4) << rocks[k - 1] << setw(3) << '*';
+        } else if (k == 7 || k == 8) {
+            cout << setw(8) << '*';
+        } else { //only the first one
+            cout << setw(6) << '*';
+        }
+    }
+}
+
+//This will display the amount of rocks in each hold. LINE 11
+int scoreDisplayDown() {
+    cout << '*';
+    for (int l = 13; l >= 6; l--) {
+        if (l <= 12 && l >= 7) {
+            cout << setw(4) << rocks[l - 1] << setw(3) << '*';
+        } else if (l == 13) {
+            cout << setw(7) << '*';
+        } else { //only the first one
+            cout << setw(8) << '*';
+        }
+    }
+}
+
+//This will display the amount of rocks in each hold. LINE 8
+int scoreDisplayMiddle() {
+    cout << '*' << setw(4) << rocks[13] << setw(3) << '*';
+    for (int e = 1; e <= 6; e++)cout << setw(7) << '*';
+    cout << setw(4) << rocks[7] << setw(4) << '*';
+}
+
+int entireBoard() {
     for (int w = 0; w <= 13; w++) {
         if (w == 1 || w == 13) {
             allStars();
-        }
-        if (w == 2 || w == 3 || w == 5 || w == 6 || w == 8 || w == 9 || w == 11 || w == 12) {
-            normStars();
-        }
-        if (w == 4) {
+        } else if (w == 4) {
             upNum();
-        }
-        if (w == 7) {
+        } else if (w == 5) {
+            scoreDisplayUp();
+        } else if (w == 7) {
             middle();
-        }
-        if (w == 10) {
+        } else if (w == 8) {
+            scoreDisplayMiddle();
+        } else if (w == 10) {
             downNum();
+        } else if (w == 11) {
+            scoreDisplayDown();
+        } else if (w >= 2 && w <= 12) {
+            normStars();
         }
         cout << endl;
     }
+}
+
+int controls() {
+    int holdNumber;
+    cin >> holdNumber;
+    switch (holdNumber) {
+        case '0' : {
+            rocks[0]--;
+            rocks[1]++;
+            break;
+        }
+    }
+}
+
+int main() {
+    initialRocks();
+    entireBoard();
+    controls();
+    entireBoard();
     return 0;
 }

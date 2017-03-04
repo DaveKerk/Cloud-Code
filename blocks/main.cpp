@@ -1,5 +1,5 @@
 #include <iostream>
-#include <bits/valarray_before.h>
+//#include <bits/valarray_before.h>
 
 int selector;
 
@@ -32,5 +32,7 @@ int main() {
     octathorpeBlock();
     dashBlock();
     octathorpeBlock();
+    std::cin>>selector;
+    blockSelect();
     return 0;
 }
