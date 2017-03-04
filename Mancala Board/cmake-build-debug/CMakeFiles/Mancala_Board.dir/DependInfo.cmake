@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/david/Desktop/Cloud Code/Mancala Board/main.cpp" "C:/Users/david/Desktop/Cloud Code/Mancala Board/cmake-build-debug/CMakeFiles/Mancala_Board.dir/main.cpp.obj"
+  "C:/Users/DaveKerk/Desktop/Cloud-Code/Mancala Board/main.cpp" "C:/Users/DaveKerk/Desktop/Cloud-Code/Mancala Board/cmake-build-debug/CMakeFiles/Mancala_Board.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

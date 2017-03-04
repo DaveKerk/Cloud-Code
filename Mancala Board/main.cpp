@@ -5,17 +5,25 @@ using namespace std;
 
 //The array.
 int rocks[14];
+
 //MESS WITH SCORE FOR LOOPS
 //Sets the initial count of rocks in each hold.
 int initialRocks() {
     //Define each value.
-    rocks[0]=4;
-    rocks[1]=4;
-    rocks[2]=4;
-    rocks[3]=4;
-    rocks[4]=4;
-    rocks[5]=4;
-    rocks[8]=4;
+    rocks[0] = 4;
+    rocks[1] = 4;
+    rocks[2] = 4;
+    rocks[3] = 4;
+    rocks[4] = 4;
+    rocks[5] = 4;
+    rocks[6] = 0; //EACH PLAYERS HOLD
+    rocks[7] = 4;
+    rocks[8] = 4;
+    rocks[9] = 4;
+    rocks[10] = 4;
+    rocks[11] = 4;
+    rocks[12] = 4;
+    rocks[13] = 0; //EACH PLAYERS HOLD
 }
 
 // Top and Bottom
@@ -76,7 +84,7 @@ int scoreDisplayUp() {
     for (int k = 0; k <= 7; k++) {
         if (k <= 6 && k >= 1) {
             cout << setw(4) << rocks[k - 1] << setw(3) << '*';
-        } else if (k == 7 || k == 8) {
+        } else if (k == 7) {
             cout << setw(8) << '*';
         } else { //only the first one
             cout << setw(6) << '*';
@@ -89,7 +97,7 @@ int scoreDisplayDown() {
     cout << '*';
     for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
-            cout << setw(4) << rocks[l - 1] << setw(3) << '*';
+            cout << setw(4) << rocks[l] << setw(3) << '*';
         } else if (l == 13) {
             cout << setw(7) << '*';
         } else { //only the first one
@@ -102,7 +110,7 @@ int scoreDisplayDown() {
 int scoreDisplayMiddle() {
     cout << '*' << setw(4) << rocks[13] << setw(3) << '*';
     for (int e = 1; e <= 6; e++)cout << setw(7) << '*';
-    cout << setw(4) << rocks[7] << setw(4) << '*';
+    cout << setw(4) << rocks[6] << setw(4) << '*';
 }
 
 int entireBoard() {
@@ -133,8 +141,8 @@ int controls() {
     cin >> holdNumber;
     switch (holdNumber) {
         case '0' : {
-            rocks[0]--;
-            rocks[1]++;
+            rocks[0] = -1;
+            rocks[1] = +1;
             break;
         }
     }
