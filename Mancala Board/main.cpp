@@ -5,17 +5,37 @@ using namespace std;
 
 //The array.
 int rocks[14];
+
 //MESS WITH SCORE FOR LOOPS
 //Sets the initial count of rocks in each hold.
 int initialRocks() {
     //Define each value.
-    rocks[0]=4;
-    rocks[1]=4;
-    rocks[2]=4;
-    rocks[3]=4;
-    rocks[4]=4;
-    rocks[5]=4;
-    rocks[8]=4;
+    // rocks[0] = 4;
+    // rocks[1] = 4;
+    // rocks[2] = 4;
+    // rocks[3] = 4;
+    // rocks[4] = 4;
+    // rocks[5] = 4;
+    // rocks[7] = 4;
+    // rocks[8] = 4;
+    // rocks[9] = 4;
+    // rocks[10] = 4;
+    // rocks[11] = 4;
+    // rocks[12] = 4;
+    rocks[0] = 0;
+    rocks[1] = 1;
+    rocks[2] = 2;
+    rocks[3] = 3;
+    rocks[4] = 4;
+    rocks[5] = 5;
+    rocks[6] = 6;
+    rocks[7] = 7;
+    rocks[8] = 8;
+    rocks[9] = 9;
+    rocks[10] = 10;
+    rocks[11] = 11;
+    rocks[12] = 12;
+    rocks[13] = 13;
 }
 
 // Top and Bottom
@@ -89,7 +109,7 @@ int scoreDisplayDown() {
     cout << '*';
     for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
-            cout << setw(4) << rocks[l - 1] << setw(3) << '*';
+            cout << setw(4) << rocks[l] << setw(3) << '*';
         } else if (l == 13) {
             cout << setw(7) << '*';
         } else { //only the first one
@@ -102,7 +122,7 @@ int scoreDisplayDown() {
 int scoreDisplayMiddle() {
     cout << '*' << setw(4) << rocks[13] << setw(3) << '*';
     for (int e = 1; e <= 6; e++)cout << setw(7) << '*';
-    cout << setw(4) << rocks[7] << setw(4) << '*';
+    cout << setw(4) << rocks[6] << setw(4) << '*';
 }
 
 int entireBoard() {
@@ -132,9 +152,8 @@ int controls() {
     int holdNumber;
     cin >> holdNumber;
     switch (holdNumber) {
-        case '0' : {
-            rocks[0]--;
-            rocks[1]++;
+        case '1' : {
+            rocks[7]--;
             break;
         }
     }
