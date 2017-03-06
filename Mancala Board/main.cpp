@@ -151,14 +151,16 @@ int entireBoard() {
 
 //Controls attempt.
 int controls() {
-    int holdNumber;
+    char holdNumber;
     cin >> holdNumber;
     switch (holdNumber) {
-        case '1' : {
-            rocks[7]--;
+        case '0' : {
+
+
             break;
-        }
     }
+}
+
 }
 
 //Function to number the top holds.
@@ -189,12 +191,17 @@ int blockNumbererDown() {
     }
 }
 
-
-int main() {
-    initialRocks();
-    entireBoard();
+int blockNumbererAll() {
     blockNumbererUp();
     blockNumbererDown();
+}
+
+int main() {
+    rocks[0] = 4;
+    initialRocks();
+    entireBoard();
+    //blockNumbererAll();
+    controls();
     entireBoard();
     return 0;
 }
