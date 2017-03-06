@@ -96,7 +96,7 @@ int scoreDisplayUp() {
     for (int k = 0; k <= 7; k++) {
         if (k <= 6 && k >= 1) {
             cout << setw(4) << rocks[k - 1] << setw(3) << '*';
-        } else if (k == 7 || k == 8) {
+        } else if (k == 7) {
             cout << setw(8) << '*';
         } else { //only the first one
             cout << setw(6) << '*';
