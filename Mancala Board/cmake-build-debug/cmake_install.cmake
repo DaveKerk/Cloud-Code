@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/DaveKerk/Desktop/Cloud-Code/Mancala Board
+# Install script for directory: C:/Users/david/Desktop/Cloud Code/Mancala Board
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Mancala_Board")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Mancala_Board_")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/DaveKerk/Desktop/Cloud-Code/Mancala Board/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/david/Desktop/Cloud Code/Mancala Board/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
