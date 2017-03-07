@@ -6,22 +6,23 @@ using namespace std;
 //The array.
 int rocks[14];
 
-//MESS WITH SCORE FOR LOOPS
 //Sets the initial count of rocks in each hold.
 int initialRocks() {
     //Define each value.
-    // rocks[0] = 4;
-    // rocks[1] = 4;
-    // rocks[2] = 4;
-    // rocks[3] = 4;
-    // rocks[4] = 4;
-    // rocks[5] = 4;
-    // rocks[7] = 4;
-    // rocks[8] = 4;
-    // rocks[9] = 4;
-    // rocks[10] = 4;
-    // rocks[11] = 4;
-    // rocks[12] = 4;
+    rocks[0] = 4;
+    rocks[1] = 4;
+    rocks[2] = 4;
+    rocks[3] = 4;
+    rocks[4] = 4;
+    rocks[5] = 4;
+    rocks[6] = 0; //Player one hold.
+    rocks[7] = 4;
+    rocks[8] = 4;
+    rocks[9] = 4;
+    rocks[10] = 4;
+    rocks[11] = 4;
+    rocks[12] = 4;
+    rocks[13] = 0; //Player two hold.
     // rocks[0] = 0;
     // rocks[1] = 1;
     // rocks[2] = 2;
@@ -155,12 +156,99 @@ int controls() {
     cin >> holdNumber;
     switch (holdNumber) {
         case '0' : {
-
-
+            while (rocks[0] > 0) {
+                rocks[rocks[0]] += 1;
+                rocks[0] -= 1;
+            }
             break;
+        }
+        case '1' : {
+            while (rocks[1] > 0) {
+                rocks[rocks[1]+1] += 1;
+                rocks[1] -= 1;
+            }
+            break;
+        }
+        case '2' : {
+            while (rocks[2] > 0) {
+                rocks[rocks[2]+2] += 1;
+                rocks[2] -= 1;
+            }
+            break;
+        }
+        case '3' : {
+            while (rocks[3] > 0) {
+                rocks[rocks[3]+3] += 1;
+                rocks[3] -= 1;
+            }
+            break;
+        }
+        case '4' : {
+            while (rocks[4] > 0) {
+                rocks[rocks[4]+4] += 1;
+                rocks[4] -= 1;
+            }
+            break;
+        }
+        case '5' : {
+            while (rocks[5] > 0) {
+                rocks[rocks[5]+5] += 1;
+                rocks[5] -= 1;
+            }
+            break;
+        }
+        case '7' : {
+            while (rocks[7] > 0) {
+                rocks[rocks[7]+7] += 1;
+                rocks[7] -= 1;
+            }
+            break;
+        }
+        case '8' : {
+            while (rocks[8] > 0) {
+                rocks[rocks[8]+8] += 1;
+                rocks[8] -= 1;
+            }
+            break;
+        }
+        case '9' : {
+            while (rocks[9] > 0) {
+                rocks[rocks[9]+9] += 1;
+                rocks[9] -= 1;
+            }
+            break;
+        }
+            // case '10' : {
+            //     while (rocks[10] > 0) {
+            //         rocks[rocks[10]+10] += 1;
+            //         rocks[10] -= 1;
+            //     }
+            //     break;
+            // }
+            // case '11' : {
+            //     while (rocks[11] > 0) {
+            //         rocks[rocks[11]+11] += 1;
+            //         rocks[11] -= 1;
+            //     }
+            //     break;
+            // }
+            // case '12' : {
+            //     while (rocks[12] > 0) {
+            //         rocks[rocks[12]+12] += 1;
+            //         rocks[12] -= 1;
+            //     }
+            //     break;
+            // }
     }
 }
 
+int gameContinue() {
+    while (
+            rocks[0] > 0 || rocks[1] > 0 || rocks[2] > 0 || rocks[3] > 0 || rocks[4] > 0 || rocks[5] > 0 ||
+            rocks[7] > 0 || rocks[8] > 0 || rocks[9] > 0 || rocks[10] > 0 || rocks[11] > 0 || rocks[12] > 0) {
+        controls();
+        entireBoard();
+    }
 }
 
 //Function to number the top holds.
@@ -191,17 +279,18 @@ int blockNumbererDown() {
     }
 }
 
+//Fun
 int blockNumbererAll() {
     blockNumbererUp();
     blockNumbererDown();
 }
 
 int main() {
-    rocks[0] = 4;
     initialRocks();
     entireBoard();
     //blockNumbererAll();
-    controls();
-    entireBoard();
+    //controls();
+    //entireBoard();
+    gameContinue();
     return 0;
 }
