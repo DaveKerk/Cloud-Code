@@ -152,6 +152,10 @@ int entireBoard() {
 
 //Controls attempt.
 int controls() {
+    //const char *12="A";
+    //const char *B="11";
+    //const char *C="12";
+
     char holdNumber;
     cin >> holdNumber;
     switch (holdNumber) {
@@ -218,21 +222,21 @@ int controls() {
             }
             break;
         }
-        case '1' + '0' : {
+        case 'A' : {
             while (rocks[10] > 0) {
                 rocks[rocks[10] + 10] += 1;
                 rocks[10] -= 1;
             }
             break;
         }
-        case '1'+'1' : {
+        case 'B' : {
             while (rocks[11] > 0) {
                 rocks[rocks[11] + 11] += 1;
                 rocks[11] -= 1;
             }
             break;
         }
-        case '1'+'2' : {
+        case 'C' : {
             while (rocks[12] > 0) {
                 rocks[rocks[12] + 12] += 1;
                 rocks[12] -= 1;
