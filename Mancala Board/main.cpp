@@ -218,27 +218,27 @@ int controls() {
             }
             break;
         }
-            // case '10' : {
-            //     while (rocks[10] > 0) {
-            //         rocks[rocks[10]+10] += 1;
-            //         rocks[10] -= 1;
-            //     }
-            //     break;
-            // }
-            // case '11' : {
-            //     while (rocks[11] > 0) {
-            //         rocks[rocks[11]+11] += 1;
-            //         rocks[11] -= 1;
-            //     }
-            //     break;
-            // }
-            // case '12' : {
-            //     while (rocks[12] > 0) {
-            //         rocks[rocks[12]+12] += 1;
-            //         rocks[12] -= 1;
-            //     }
-            //     break;
-            // }
+        case '1' + '0' : {
+            while (rocks[10] > 0) {
+                rocks[rocks[10] + 10] += 1;
+                rocks[10] -= 1;
+            }
+            break;
+        }
+        case '1'+'1' : {
+            while (rocks[11] > 0) {
+                rocks[rocks[11] + 11] += 1;
+                rocks[11] -= 1;
+            }
+            break;
+        }
+        case '1'+'2' : {
+            while (rocks[12] > 0) {
+                rocks[rocks[12] + 12] += 1;
+                rocks[12] -= 1;
+            }
+            break;
+        }
         default: {
             cout << "Unrecognized input, please try again.";
         }
