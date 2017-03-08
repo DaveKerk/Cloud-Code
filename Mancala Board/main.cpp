@@ -150,6 +150,74 @@ int entireBoard() {
     }
 }
 
+int takeAllZero() {
+    if (rocks[0] % 14 == 0) {
+        if (rocks[rocks[0]] == 0) {
+            rocks[6] += rocks[12];
+            rocks[12] = 0;
+        }
+    } else if (rocks[0] % 5 == 0) {
+        if (rocks[rocks[0]] == 0) {
+            rocks[6] += rocks[7];
+            rocks[7] = 0;
+        }
+    } else if (rocks[0] % 4 == 0) {
+        if (rocks[rocks[0]] == 0) {
+            rocks[6] += rocks[8];
+            rocks[8] = 0;
+        }
+    } else if (rocks[0] % 3 == 0) {
+        if (rocks[rocks[0]] == 0) {
+            rocks[6] += rocks[9];
+            rocks[9] = 0;
+        }
+    } else if (rocks[0] % 2 == 0) {
+        if (rocks[rocks[0]] == 0) {
+            rocks[6] += rocks[10];
+            rocks[10] = 0;
+        }
+    } else if (rocks[0] % 1 == 0) {
+        if (rocks[rocks[0]] == 0) {
+            rocks[6] += rocks[11];
+            rocks[11] = 0;
+        }
+    }
+}
+
+int takeAllOne() {
+    if (rocks[1] % 14 == 0) {
+        if (rocks[rocks[1]] + 1 == 0) {
+            rocks[6] += rocks[11];
+            rocks[11] = 0;
+        }
+    } else if (rocks[1] % 5 == 0) {
+        if (rocks[rocks[1]] + 1 == 0) {
+            rocks[6] += rocks[12];
+            rocks[12] = 0;
+        }
+    } else if (rocks[1] % 4 == 0) {
+        if (rocks[rocks[1]] + 1 == 0) {
+            rocks[6] += rocks[7];
+            rocks[7] = 0;
+        }
+    } else if (rocks[1] % 3 == 0) {
+        if (rocks[rocks[1] + 1] == 0) {
+            rocks[6] += rocks[8];
+            rocks[8] = 0;
+        }
+    } else if (rocks[1] % 2 == 0) {
+        if (rocks[rocks[1]] + 1 == 0) {
+            rocks[6] += rocks[9];
+            rocks[9] = 0;
+        }
+    } else if (rocks[1] % 1 == 0) {
+        if (rocks[rocks[1]] + 1 == 0) {
+            rocks[6] += rocks[10];
+            rocks[10] = 0;
+        }
+    }
+}
+
 //Controls attempt.
 int controls() {
     //const char *12="A";
@@ -160,6 +228,7 @@ int controls() {
     cin >> holdNumber;
     switch (holdNumber) {
         case '0' : {
+            takeAllZero();
             while (rocks[0] > 0) {
                 rocks[rocks[0]] += 1;
                 rocks[0] -= 1;
@@ -167,6 +236,7 @@ int controls() {
             break;
         }
         case '1' : {
+            takeAllOne();
             while (rocks[1] > 0) {
                 rocks[rocks[1] + 1] += 1;
                 rocks[1] -= 1;
@@ -286,7 +356,7 @@ int blockNumbererDown() {
     }
 }
 
-//Fun
+//Function to number all holds.
 int blockNumbererAll() {
     blockNumbererUp();
     blockNumbererDown();
