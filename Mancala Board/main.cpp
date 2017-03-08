@@ -11,7 +11,7 @@ int initialRocks() {
     //Define each value.
     rocks[0] = 4;
     rocks[1] = 4;
-    rocks[2] = 2;
+    rocks[2] = 4;
     rocks[3] = 4;
     rocks[4] = 4;
     rocks[5] = 4;
@@ -254,7 +254,7 @@ int takeAllTwo() {
     }
 }
 
-//Controls attempt.
+//Controls function.
 int controls() {
     //const char *12="A";
     //const char *B="11";
@@ -264,22 +264,22 @@ int controls() {
     cin >> holdNumber;
     switch (holdNumber) {
         case '0' : {
-            //takeAllZero();
+            takeAllZero();
             while (rocks[0] > 0) {
 
                 rocks[rocks[0]] += 1;
                 rocks[0] -= 1;
             }
-            takeAllZero();
+            //takeAllZero();
             break;
         }
         case '1' : {
-            //takeAllOne();
+            takeAllOne();
             while (rocks[1] > 0) {
                 rocks[rocks[1] + 1] += 1;
                 rocks[1] -= 1;
             }
-            takeAllOne();
+            //takeAllOne();
             break;
         }
         case '2' : {
