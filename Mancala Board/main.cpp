@@ -11,7 +11,7 @@ int initialRocks() {
     //Define each value.
     rocks[0] = 4;
     rocks[1] = 4;
-    rocks[2] = 4;
+    rocks[2] = 2;
     rocks[3] = 4;
     rocks[4] = 4;
     rocks[5] = 4;
@@ -186,17 +186,17 @@ int takeAllZero() {
 
 int takeAllOne() {
     if (rocks[1] % 14 == 0) {
-        if (rocks[rocks[1]] + 1 == 0) {
+        if (rocks[rocks[1] + 1] == 0) {
             rocks[6] += rocks[11];
             rocks[11] = 0;
         }
-    } else if (rocks[1] % 5 == 0) {
-        if (rocks[rocks[1]] + 1 == 0) {
+    } else if (rocks[1] % 13 == 0) {
+        if (rocks[rocks[1] + 1] == 0) {
             rocks[6] += rocks[12];
             rocks[12] = 0;
         }
     } else if (rocks[1] % 4 == 0) {
-        if (rocks[rocks[1]] + 1 == 0) {
+        if (rocks[rocks[1] + 1] == 0) {
             rocks[6] += rocks[7];
             rocks[7] = 0;
         }
@@ -206,12 +206,48 @@ int takeAllOne() {
             rocks[8] = 0;
         }
     } else if (rocks[1] % 2 == 0) {
-        if (rocks[rocks[1]] + 1 == 0) {
+        if (rocks[rocks[1] + 1] == 0) {
             rocks[6] += rocks[9];
             rocks[9] = 0;
         }
     } else if (rocks[1] % 1 == 0) {
-        if (rocks[rocks[1]] + 1 == 0) {
+        if (rocks[rocks[1] + 1] == 0) {
+            rocks[6] += rocks[10];
+            rocks[10] = 0;
+        }
+    }
+}
+
+int takeAllTwo() {
+    if (rocks[2] % 14 == 0) {
+        if (rocks[rocks[2] + 2] == 0) {
+            rocks[6] += rocks[11];
+            rocks[11] = 0;
+        }
+    } else if (rocks[2] % 13 == 0) {
+        if (rocks[rocks[2] + 2] == 0) {
+            rocks[6] += rocks[10];
+            rocks[10] = 0;
+        }
+
+    } else if (rocks[2] % 12 == 0) {
+        if (rocks[rocks[2] + 2] == 0) {
+            rocks[6] += rocks[9];
+            rocks[9] = 0;
+        }
+
+    } else if (rocks[2] % 3 == 0) {
+        if (rocks[rocks[2] + 2] == 0) {
+            rocks[6] += rocks[8];
+            rocks[8] = 0;
+        }
+    } else if (rocks[2] % 2 == 0) {
+        if (rocks[rocks[2] + 2] == 0) {
+            rocks[6] += rocks[9];
+            rocks[9] = 0;
+        }
+    } else if (rocks[2] % 1 == 0) {
+        if (rocks[rocks[2] + 2] == 0) {
             rocks[6] += rocks[10];
             rocks[10] = 0;
         }
@@ -228,26 +264,31 @@ int controls() {
     cin >> holdNumber;
     switch (holdNumber) {
         case '0' : {
-            takeAllZero();
+            //takeAllZero();
             while (rocks[0] > 0) {
+
                 rocks[rocks[0]] += 1;
                 rocks[0] -= 1;
             }
+            takeAllZero();
             break;
         }
         case '1' : {
-            takeAllOne();
+            //takeAllOne();
             while (rocks[1] > 0) {
                 rocks[rocks[1] + 1] += 1;
                 rocks[1] -= 1;
             }
+            takeAllOne();
             break;
         }
         case '2' : {
+            //takeAllTwo();
             while (rocks[2] > 0) {
                 rocks[rocks[2] + 2] += 1;
                 rocks[2] -= 1;
             }
+            takeAllTwo();
             break;
         }
         case '3' : {
@@ -292,21 +333,21 @@ int controls() {
             }
             break;
         }
-        case 'A' : {
+        case 'A': {
             while (rocks[10] > 0) {
                 rocks[rocks[10] + 10] += 1;
                 rocks[10] -= 1;
             }
             break;
         }
-        case 'B' : {
+        case 'B': {
             while (rocks[11] > 0) {
                 rocks[rocks[11] + 11] += 1;
                 rocks[11] -= 1;
             }
             break;
         }
-        case 'C' : {
+        case 'C': {
             while (rocks[12] > 0) {
                 rocks[rocks[12] + 12] += 1;
                 rocks[12] -= 1;
