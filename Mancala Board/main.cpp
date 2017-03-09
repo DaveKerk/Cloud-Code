@@ -283,12 +283,12 @@ int controls() {
             break;
         }
         case '2' : {
-            //takeAllTwo();
+            takeAllTwo();
             while (rocks[2] > 0) {
                 rocks[rocks[2] + 2] += 1;
                 rocks[2] -= 1;
             }
-            takeAllTwo();
+            //takeAllTwo();
             break;
         }
         case '3' : {
