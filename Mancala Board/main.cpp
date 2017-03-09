@@ -10,8 +10,8 @@ int rocks[14];
 int initialRocks() {
     //Define each value.
     rocks[0] = 4;
-    rocks[1] = 4;
-    rocks[2] = 4;
+    rocks[1] = 1;
+    rocks[2] = 2;
     rocks[3] = 4;
     rocks[4] = 4;
     rocks[5] = 4;
@@ -221,13 +221,13 @@ int takeAllOne() {
 int takeAllTwo() {
     if (rocks[2] % 14 == 0) {
         if (rocks[rocks[2] + 2] == 0) {
-            rocks[6] += rocks[11];
-            rocks[11] = 0;
+            rocks[6] += rocks[10];
+            rocks[10] = 0;
         }
     } else if (rocks[2] % 13 == 0) {
         if (rocks[rocks[2] + 2] == 0) {
-            rocks[6] += rocks[10];
-            rocks[10] = 0;
+            rocks[6] += rocks[11];
+            rocks[11] = 0;
         }
 
     } else if (rocks[2] % 12 == 0) {
@@ -238,18 +238,18 @@ int takeAllTwo() {
 
     } else if (rocks[2] % 3 == 0) {
         if (rocks[rocks[2] + 2] == 0) {
-            rocks[6] += rocks[8];
-            rocks[8] = 0;
+            rocks[6] += rocks[7];
+            rocks[7] = 0;
         }
     } else if (rocks[2] % 2 == 0) {
         if (rocks[rocks[2] + 2] == 0) {
+            rocks[6] += rocks[8];
+            rocks[8] = 0;
+        }
+    } else if (rocks[2] % 1 == 0 && rocks[2] % 2 != 0) {
+        if (rocks[rocks[2] + 2] == 0) {
             rocks[6] += rocks[9];
             rocks[9] = 0;
-        }
-    } else if (rocks[2] % 1 == 0) {
-        if (rocks[rocks[2] + 2] == 0) {
-            rocks[6] += rocks[10];
-            rocks[10] = 0;
         }
     }
 }
@@ -360,12 +360,23 @@ int controls() {
     }
 }
 
+//Lets the game continue and declares winner at end.
 int gameContinue() {
     while (
             rocks[0] > 0 || rocks[1] > 0 || rocks[2] > 0 || rocks[3] > 0 || rocks[4] > 0 || rocks[5] > 0 ||
             rocks[7] > 0 || rocks[8] > 0 || rocks[9] > 0 || rocks[10] > 0 || rocks[11] > 0 || rocks[12] > 0) {
         controls();
         entireBoard();
+    }
+    cout << "GAME FINISHED";
+    cout << "PLAYER ONE SCORE: " << rocks[6] << endl;
+    cout << "PLAYER TWO SCORE: " << rocks[13] << endl;
+    if (rocks[6] > rocks[13]) {
+        cout << "PLAYER ONE WINS!!";
+    } else if (rocks[13] > rocks[6]) {
+        cout << "PLAYER TWO WINS!!";
+    } else if (rocks[6] == rocks[13]) {
+        cout << "YOU TIED!" << endl << endl << "...how?";
     }
 }
 
