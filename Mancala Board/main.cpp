@@ -583,8 +583,11 @@ int controls() {
 			   if (rocks[0] >13){
 					int j;
 					j=rocks[0]-13;
-				}
-            while (rocks[0] > 0 && j>0) {
+				   while (j>0){
+					   rocks[j] += 1;
+					   j-=1;
+              }   }
+            while (rocks[0] > 0) {
                 rocks[rocks[0]] += 1;
                 rocks[0] -= 1;
             }
