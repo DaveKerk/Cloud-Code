@@ -580,8 +580,11 @@ int controls() {
     switch (holdNumber) {
         case '0' : {
             takeAllZero();
-            while (rocks[0] > 0) {
-
+			   if (rocks[0] >13){
+					int j;
+					j=rocks[0]-13;
+				}
+            while (rocks[0] > 0 && j>0) {
                 rocks[rocks[0]] += 1;
                 rocks[0] -= 1;
             }
