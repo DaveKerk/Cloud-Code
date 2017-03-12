@@ -580,13 +580,14 @@ int controls() {
     switch (holdNumber) {
         case '0' : {
             takeAllZero();
-			   if (rocks[0] >13){
-					int j;
-					j=rocks[0]-13;
-				   while (j>0){
-					   rocks[j] += 1;
-					   j-=1;
-              }   }
+            if (rocks[0] > 13) {
+                int j;
+                j = rocks[0] - 13;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[0] > 0) {
                 rocks[rocks[0]] += 1;
                 rocks[0] -= 1;
@@ -595,6 +596,14 @@ int controls() {
         }
         case '1' : {
             takeAllOne();
+            if (rocks[1] > 12) {
+                int j;
+                j = rocks[1] - 12;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[1] > 0) {
                 rocks[rocks[1] + 1] += 1;
                 rocks[1] -= 1;
@@ -603,6 +612,14 @@ int controls() {
         }
         case '2' : {
             takeAllTwo();
+            if (rocks[2] > 11) {
+                int j;
+                j = rocks[2] - 11;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[2] > 0) {
                 rocks[rocks[2] + 2] += 1;
                 rocks[2] -= 1;
@@ -611,6 +628,14 @@ int controls() {
         }
         case '3' : {
             takeAllThree();
+            if (rocks[3] > 10) {
+                int j;
+                j = rocks[3] - 10;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[3] > 0) {
                 rocks[rocks[3] + 3] += 1;
                 rocks[3] -= 1;
@@ -619,6 +644,14 @@ int controls() {
         }
         case '4' : {
             takeAllFour();
+            if (rocks[4] > 9) {
+                int j;
+                j = rocks[4] - 9;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[4] > 0) {
                 rocks[rocks[4] + 4] += 1;
                 rocks[4] -= 1;
@@ -627,6 +660,14 @@ int controls() {
         }
         case '5' : {
             takeAllFive();
+            if (rocks[5] > 8) {
+                int j;
+                j = rocks[5] - 8;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[5] > 0) {
                 rocks[rocks[5] + 5] += 1;
                 rocks[5] -= 1;
@@ -635,6 +676,14 @@ int controls() {
         }
         case '7' : {
             takeAllSeven();
+            if (rocks[7] > 6) {
+                int j;
+                j = rocks[7] - 6;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[7] > 0) {
                 rocks[rocks[7] + 7] += 1;
                 rocks[7] -= 1;
@@ -643,6 +692,14 @@ int controls() {
         }
         case '8' : {
             takeAllEight();
+            if (rocks[8] > 5) {
+                int j;
+                j = rocks[8] - 5;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[8] > 0) {
                 rocks[rocks[8] + 8] += 1;
                 rocks[8] -= 1;
@@ -651,6 +708,14 @@ int controls() {
         }
         case '9' : {
             takeAllNine();
+            if (rocks[9] > 4) {
+                int j;
+                j = rocks[9] - 4;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[9] > 0) {
                 rocks[rocks[9] + 9] += 1;
                 rocks[9] -= 1;
@@ -659,6 +724,14 @@ int controls() {
         }
         case 'A': {
             takeAllTen();
+            if (rocks[10] > 3) {
+                int j;
+                j = rocks[10] - 3;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[10] > 0) {
                 rocks[rocks[10] + 10] += 1;
                 rocks[10] -= 1;
@@ -667,6 +740,14 @@ int controls() {
         }
         case 'B': {
             takeAllEleven();
+            if (rocks[11] > 2) {
+                int j;
+                j = rocks[11] - 2;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[11] > 0) {
                 rocks[rocks[11] + 11] += 1;
                 rocks[11] -= 1;
@@ -675,6 +756,14 @@ int controls() {
         }
         case 'C': {
             takeAllTwelve();
+            if (rocks[12] > 1) {
+                int j;
+                j = rocks[12] - 1;
+                while (j > 0) {
+                    rocks[j] += 1;
+                    j -= 1;
+                }
+            }
             while (rocks[12] > 0) {
                 rocks[rocks[12] + 12] += 1;
                 rocks[12] -= 1;
