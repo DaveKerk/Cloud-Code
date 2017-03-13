@@ -151,8 +151,9 @@ int entireBoard() {
 }
 
 /*
-    Fucntions that implement the "Land in a zero hold take the other's rocks" rule.
+    Functions that implement the "Land in a zero hold take the other's rocks" rule.
 */
+
 int takeAllZero() {
     if (rocks[0] % 14 == 0) {
         if (rocks[rocks[0]] == 0) {
@@ -368,32 +369,32 @@ int takeAllFive() {
 int takeAllSeven() {
     if (rocks[7] % 14 == 0) {
         if (rocks[rocks[7] + 7] == 0) {
-            rocks[6] += rocks[5];
+            rocks[13] += rocks[5];
             rocks[5] = 0;
         }
     } else if (rocks[7] % 5 == 0) {
         if (rocks[rocks[7] + 7] == 0) {
-            rocks[6] += rocks[0];
+            rocks[13] += rocks[0];
             rocks[0] = 0;
         }
     } else if (rocks[7] % 4 == 0) {
         if (rocks[rocks[7] + 7] == 0) {
-            rocks[6] += rocks[1];
+            rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     } else if (rocks[7] % 3 == 0) {
         if (rocks[rocks[7] + 7] == 0) {
-            rocks[6] += rocks[2];
+            rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     } else if (rocks[7] % 2 == 0) {
         if (rocks[rocks[7] + 7] == 0) {
-            rocks[6] += rocks[3];
+            rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[7] % 1 == 0) {
         if (rocks[rocks[7] + 7] == 0) {
-            rocks[6] += rocks[4];
+            rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     }
@@ -402,32 +403,32 @@ int takeAllSeven() {
 int takeAllEight() {
     if (rocks[8] % 14 == 0) {
         if (rocks[rocks[8] + 8] == 0) {
-            rocks[6] += rocks[4];
+            rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     } else if (rocks[8] % 13 == 0) {
         if (rocks[rocks[8] + 8] == 0) {
-            rocks[6] += rocks[5];
+            rocks[13] += rocks[5];
             rocks[5] = 0;
         }
     } else if (rocks[8] % 4 == 0) {
         if (rocks[rocks[8] + 8] == 0) {
-            rocks[6] += rocks[0];
+            rocks[13] += rocks[0];
             rocks[0] = 0;
         }
     } else if (rocks[8] % 3 == 0) {
         if (rocks[rocks[8] + 8] == 0) {
-            rocks[6] += rocks[1];
+            rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     } else if (rocks[8] % 2 == 0) {
         if (rocks[rocks[8] + 8] == 0) {
-            rocks[6] += rocks[2];
+            rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     } else if (rocks[8] % 1 == 0) {
         if (rocks[rocks[8] + 8] == 0) {
-            rocks[6] += rocks[3];
+            rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     }
@@ -436,32 +437,32 @@ int takeAllEight() {
 int takeAllNine() {
     if (rocks[9] % 14 == 0) {
         if (rocks[rocks[9] + 9] == 0) {
-            rocks[6] += rocks[3];
+            rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[9] % 13 == 0) {
         if (rocks[rocks[9] + 9] == 0) {
-            rocks[6] += rocks[4];
+            rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     } else if (rocks[9] % 12 == 0) {
         if (rocks[rocks[9] + 9] == 0) {
-            rocks[6] += rocks[5];
+            rocks[13] += rocks[5];
             rocks[5] = 0;
         }
     } else if (rocks[9] % 3 == 0) {
         if (rocks[rocks[9] + 9] == 0) {
-            rocks[6] += rocks[0];
+            rocks[13] += rocks[0];
             rocks[0] = 0;
         }
     } else if (rocks[9] % 2 == 0) {
         if (rocks[rocks[9] + 9] == 0) {
-            rocks[6] += rocks[1];
+            rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     } else if (rocks[9] % 1 == 0) {
         if (rocks[rocks[9] + 9] == 0) {
-            rocks[6] += rocks[2];
+            rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     }
@@ -470,32 +471,32 @@ int takeAllNine() {
 int takeAllTen() {
     if (rocks[10] % 14 == 0) {
         if (rocks[rocks[10] + 10] == 0) {
-            rocks[6] += rocks[2];
+            rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     } else if (rocks[10] % 13 == 0) {
         if (rocks[rocks[10] + 10] == 0) {
-            rocks[6] += rocks[3];
+            rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[10] % 12 == 0) {
         if (rocks[rocks[10] + 10] == 0) {
-            rocks[6] += rocks[4];
+            rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     } else if (rocks[10] % 11 == 0) {
         if (rocks[rocks[10] + 10] == 0) {
-            rocks[6] += rocks[3];
+            rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[10] % 2 == 0) {
         if (rocks[rocks[10] + 10] == 0) {
-            rocks[6] += rocks[0];
+            rocks[13] += rocks[0];
             rocks[0] = 0;
         }
     } else if (rocks[10] % 1 == 0) {
         if (rocks[rocks[10] + 10] == 0) {
-            rocks[6] += rocks[1];
+            rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     }
@@ -504,32 +505,32 @@ int takeAllTen() {
 int takeAllEleven() {
     if (rocks[11] % 14 == 0) {
         if (rocks[rocks[11] + 11] == 0) {
-            rocks[6] += rocks[1];
+            rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     } else if (rocks[11] % 13 == 0) {
         if (rocks[rocks[11] + 11] == 0) {
-            rocks[6] += rocks[2];
+            rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     } else if (rocks[11] % 12 == 0) {
         if (rocks[rocks[11] + 11] == 0) {
-            rocks[6] += rocks[3];
+            rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[11] % 11 == 0) {
         if (rocks[rocks[11] + 11] == 0) {
-            rocks[6] += rocks[4];
+            rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     } else if (rocks[11] % 10 == 0) {
         if (rocks[rocks[11] + 11] == 0) {
-            rocks[6] += rocks[5];
+            rocks[13] += rocks[5];
             rocks[5] = 0;
         }
     } else if (rocks[11] % 1 == 0) {
         if (rocks[rocks[11] + 11] == 0) {
-            rocks[6] += rocks[0];
+            rocks[13] += rocks[0];
             rocks[0] = 0;
         }
     }
@@ -538,32 +539,32 @@ int takeAllEleven() {
 int takeAllTwelve() {
     if (rocks[12] % 14 == 0) {
         if (rocks[rocks[12] + 12] == 0) {
-            rocks[6] += rocks[0];
+            rocks[13] += rocks[0];
             rocks[0] = 0;
         }
     } else if (rocks[12] % 13 == 0) {
         if (rocks[rocks[12] + 12] == 0) {
-            rocks[6] += rocks[1];
+            rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     } else if (rocks[12] % 12 == 0) {
         if (rocks[rocks[12] + 12] == 0) {
-            rocks[6] += rocks[2];
+            rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     } else if (rocks[12] % 12 == 0) {
         if (rocks[rocks[12] + 12] == 0) {
-            rocks[6] += rocks[3];
+            rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[12] % 10 == 0) {
         if (rocks[rocks[12] + 12] == 0) {
-            rocks[6] += rocks[4];
+            rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     } else if (rocks[12] % 9 == 0) {
         if (rocks[rocks[12] + 12] == 0) {
-            rocks[6] += rocks[5];
+            rocks[13] += rocks[5];
             rocks[5] = 0;
         }
     }
@@ -784,7 +785,7 @@ int gameContinue() {
         controls();
         entireBoard();
     }
-    cout << "GAME FINISHED";
+    cout << "GAME FINISHED" << endl;
     cout << "PLAYER ONE SCORE: " << rocks[6] << endl;
     cout << "PLAYER TWO SCORE: " << rocks[13] << endl;
     if (rocks[6] > rocks[13]) {
