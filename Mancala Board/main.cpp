@@ -584,7 +584,7 @@ int controls() {
                 int j;
                 j = rocks[0] - 13;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -600,7 +600,7 @@ int controls() {
                 int j;
                 j = rocks[1] - 12;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -616,7 +616,7 @@ int controls() {
                 int j;
                 j = rocks[2] - 11;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -632,7 +632,7 @@ int controls() {
                 int j;
                 j = rocks[3] - 10;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -648,7 +648,7 @@ int controls() {
                 int j;
                 j = rocks[4] - 9;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -664,7 +664,7 @@ int controls() {
                 int j;
                 j = rocks[5] - 8;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -680,7 +680,7 @@ int controls() {
                 int j;
                 j = rocks[7] - 6;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -696,7 +696,7 @@ int controls() {
                 int j;
                 j = rocks[8] - 5;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -712,7 +712,7 @@ int controls() {
                 int j;
                 j = rocks[9] - 4;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -728,7 +728,7 @@ int controls() {
                 int j;
                 j = rocks[10] - 3;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -744,7 +744,7 @@ int controls() {
                 int j;
                 j = rocks[11] - 2;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
@@ -760,7 +760,7 @@ int controls() {
                 int j;
                 j = rocks[12] - 1;
                 while (j > 0) {
-                    rocks[j] += 1;
+                    rocks[j - 1] += 1;
                     j -= 1;
                 }
             }
