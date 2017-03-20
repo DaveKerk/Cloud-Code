@@ -570,6 +570,38 @@ int takeAllTwelve() {
     }
 }
 
+//gameOverCheck function on the instruction sheet.
+int gameOverCheck() {
+    if (rocks[0] == 0 && rocks[1] == 0 && rocks[2] == 0 && rocks[3] == 0 && rocks[4] == 0 && rocks[5] == 0) {
+        rocks[6] += rocks[7];
+        rocks[7] = 0;
+        rocks[6] += rocks[8];
+        rocks[8] = 0;
+        rocks[6] += rocks[9];
+        rocks[9] = 0;
+        rocks[6] += rocks[10];
+        rocks[10] = 0;
+        rocks[6] += rocks[11];
+        rocks[11] = 0;
+        rocks[6] += rocks[12];
+        rocks[12] = 0;
+    }
+    if (rocks[7] == 0 && rocks[8] == 0 && rocks[9] == 0 && rocks[10] == 0 && rocks[11] == 0 && rocks[12] == 0) {
+        rocks[13] += rocks[0];
+        rocks[0] = 0;
+        rocks[13] += rocks[1];
+        rocks[1] = 0;
+        rocks[13] += rocks[2];
+        rocks[2] = 0;
+        rocks[13] += rocks[3];
+        rocks[3] = 0;
+        rocks[13] += rocks[4];
+        rocks[4] = 0;
+        rocks[13] += rocks[5];
+        rocks[5] = 0;
+    }
+}
+
 //Controls function.
 int controls() {
     //const char *12="A";
@@ -784,7 +816,9 @@ int gameContinue() {
             rocks[7] > 0 || rocks[8] > 0 || rocks[9] > 0 || rocks[10] > 0 || rocks[11] > 0 || rocks[12] > 0) {
         controls();
         entireBoard();
+        gameOverCheck();
     }
+    entireBoard();
     cout << "GAME FINISHED" << endl;
     cout << "PLAYER ONE SCORE: " << rocks[6] << endl;
     cout << "PLAYER TWO SCORE: " << rocks[13] << endl;
@@ -834,7 +868,7 @@ int blockNumbererAll() {
 int main() {
     initialRocks();
     //blockNumbererAll();
-    blockNumbererDown();
+    //blockNumbererDown();
     entireBoard();
     gameContinue();
     return 0;
