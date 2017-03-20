@@ -460,7 +460,7 @@ int takeAllNine() {
             rocks[13] += rocks[1];
             rocks[1] = 0;
         }
-    } else if (rocks[9] % 1 == 0) {
+    } else if (rocks[9] % 1 == 0 && rocks[9] != 4) {
         if (rocks[rocks[9] + 9] == 0) {
             rocks[13] += rocks[2];
             rocks[2] = 0;
@@ -495,7 +495,7 @@ int takeAllTen() {
             rocks[0] = 0;
         }
     } else if (rocks[10] % 1 == 0) {
-        if (rocks[rocks[10] + 10] == 0) {
+        if (rocks[rocks[10] + 10] == 0 && rocks[10] != 3) {
             rocks[13] += rocks[1];
             rocks[1] = 0;
         }
@@ -529,7 +529,7 @@ int takeAllEleven() {
             rocks[5] = 0;
         }
     } else if (rocks[11] % 1 == 0) {
-        if (rocks[rocks[11] + 11] == 0) {
+        if (rocks[rocks[11] + 11] == 0 && rocks[11] != 2) {
             rocks[13] += rocks[0];
             rocks[0] = 0;
         }
@@ -833,6 +833,8 @@ int blockNumbererAll() {
 
 int main() {
     initialRocks();
+    //blockNumbererAll();
+    blockNumbererDown();
     entireBoard();
     gameContinue();
     return 0;
