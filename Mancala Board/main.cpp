@@ -170,17 +170,17 @@ int takeAllZero() {
             rocks[6] += rocks[8];
             rocks[8] = 0;
         }
-    } else if (rocks[0] % 3 == 0) {
+    } else if (rocks[0] % 3 == 0 && rocks[0] != 6) {
         if (rocks[rocks[0]] == 0) {
             rocks[6] += rocks[9];
             rocks[9] = 0;
         }
-    } else if (rocks[0] % 2 == 0) {
+    } else if (rocks[0] % 2 == 0 && rocks[0] != 6) {
         if (rocks[rocks[0]] == 0) {
             rocks[6] += rocks[10];
             rocks[10] = 0;
         }
-    } else if (rocks[0] % 1 == 0) {
+    } else if (rocks[0] % 1 == 0 && rocks[0] != 6) {
         if (rocks[rocks[0]] == 0) {
             rocks[6] += rocks[11];
             rocks[11] = 0;
@@ -214,7 +214,7 @@ int takeAllOne() {
             rocks[6] += rocks[9];
             rocks[9] = 0;
         }
-    } else if (rocks[1] % 1 == 0) {
+    } else if (rocks[1] % 1 == 0 && rocks[1] != 5) {
         if (rocks[rocks[1] + 1] == 0) {
             rocks[6] += rocks[10];
             rocks[10] = 0;
@@ -245,12 +245,12 @@ int takeAllTwo() {
             rocks[6] += rocks[7];
             rocks[7] = 0;
         }
-    } else if (rocks[2] % 2 == 0) {
+    } else if (rocks[2] % 2 == 0 && rocks[2] != 4) {
         if (rocks[rocks[2] + 2] == 0) {
             rocks[6] += rocks[8];
             rocks[8] = 0;
         }
-    } else if (rocks[2] % 1 == 0 && rocks[2] % 2 != 0) {
+    } else if (rocks[2] % 1 == 0 && rocks[2] != 4) {
         if (rocks[rocks[2] + 2] == 0) {
             rocks[6] += rocks[9];
             rocks[9] = 0;
@@ -276,7 +276,7 @@ int takeAllThree() {
             rocks[11] = 0;
         }
 
-    } else if (rocks[3] % 11 == 0) {
+    } else if (rocks[3] % 11 == 0 && rocks[3] != 3) {
         if (rocks[rocks[3] + 3] == 0) {
             rocks[6] += rocks[12];
             rocks[12] = 0;
@@ -286,7 +286,7 @@ int takeAllThree() {
             rocks[6] += rocks[7];
             rocks[7] = 0;
         }
-    } else if (rocks[3] % 1 == 0) {
+    } else if (rocks[3] % 1 == 0 && rocks[3] != 3) {
         if (rocks[rocks[3] + 3] == 0) {
             rocks[6] += rocks[8];
             rocks[8] = 0;
@@ -322,7 +322,7 @@ int takeAllFour() {
             rocks[6] += rocks[12];
             rocks[12] = 0;
         }
-    } else if (rocks[4] % 1 == 0) {
+    } else if (rocks[4] % 1 == 0 && rocks[4] != 2) {
         if (rocks[rocks[4] + 4] == 0) {
             rocks[6] += rocks[7];
             rocks[7] = 0;
@@ -382,17 +382,17 @@ int takeAllSeven() {
             rocks[13] += rocks[1];
             rocks[1] = 0;
         }
-    } else if (rocks[7] % 3 == 0) {
+    } else if (rocks[7] % 3 == 0 && rocks[7] != 6) {
         if (rocks[rocks[7] + 7] == 0) {
             rocks[13] += rocks[2];
             rocks[2] = 0;
         }
-    } else if (rocks[7] % 2 == 0) {
+    } else if (rocks[7] % 2 == 0 && rocks[7] != 6) {
         if (rocks[rocks[7] + 7] == 0) {
             rocks[13] += rocks[3];
             rocks[3] = 0;
         }
-    } else if (rocks[7] % 1 == 0) {
+    } else if (rocks[7] % 1 == 0 && rocks[7] != 6) {
         if (rocks[rocks[7] + 7] == 0) {
             rocks[13] += rocks[4];
             rocks[4] = 0;
@@ -426,7 +426,7 @@ int takeAllEight() {
             rocks[13] += rocks[2];
             rocks[2] = 0;
         }
-    } else if (rocks[8] % 1 == 0) {
+    } else if (rocks[8] % 1 == 0 && rocks[8] != 5) {
         if (rocks[rocks[8] + 8] == 0) {
             rocks[13] += rocks[3];
             rocks[3] = 0;
@@ -455,7 +455,7 @@ int takeAllNine() {
             rocks[13] += rocks[0];
             rocks[0] = 0;
         }
-    } else if (rocks[9] % 2 == 0) {
+    } else if (rocks[9] % 2 == 0 && rocks[9] != 4) {
         if (rocks[rocks[9] + 9] == 0) {
             rocks[13] += rocks[1];
             rocks[1] = 0;
@@ -504,32 +504,32 @@ int takeAllTen() {
 
 int takeAllEleven() {
     if (rocks[11] % 14 == 0) {
-        if (rocks[rocks[11] + 11] == 0) {
+        if (rocks[11] == 0) {
             rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     } else if (rocks[11] % 13 == 0) {
-        if (rocks[rocks[11] + 11] == 0) {
+        if (rocks[10] == 0) {
             rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     } else if (rocks[11] % 12 == 0) {
-        if (rocks[rocks[11] + 11] == 0) {
+        if (rocks[9] == 0) {
             rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[11] % 11 == 0) {
-        if (rocks[rocks[11] + 11] == 0) {
+        if (rocks[8] == 0) {
             rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     } else if (rocks[11] % 10 == 0) {
-        if (rocks[rocks[11] + 11] == 0) {
+        if (rocks[7] == 0) {
             rocks[13] += rocks[5];
             rocks[5] = 0;
         }
     } else if (rocks[11] % 1 == 0) {
-        if (rocks[rocks[11] + 11] == 0 && rocks[11] != 2) {
+        if (rocks[12] == 0 && rocks[11] != 2) {
             rocks[13] += rocks[0];
             rocks[0] = 0;
         }
@@ -538,32 +538,32 @@ int takeAllEleven() {
 
 int takeAllTwelve() {
     if (rocks[12] % 14 == 0) {
-        if (rocks[rocks[12] + 12] == 0) {
+        if (rocks[12] == 0) {
             rocks[13] += rocks[0];
             rocks[0] = 0;
         }
     } else if (rocks[12] % 13 == 0) {
-        if (rocks[rocks[12] + 12] == 0) {
+        if (rocks[11] == 0) {
             rocks[13] += rocks[1];
             rocks[1] = 0;
         }
     } else if (rocks[12] % 12 == 0) {
-        if (rocks[rocks[12] + 12] == 0) {
+        if (rocks[10] == 0) {
             rocks[13] += rocks[2];
             rocks[2] = 0;
         }
     } else if (rocks[12] % 12 == 0) {
-        if (rocks[rocks[12] + 12] == 0) {
+        if (rocks[9] == 0) {
             rocks[13] += rocks[3];
             rocks[3] = 0;
         }
     } else if (rocks[12] % 10 == 0) {
-        if (rocks[rocks[12] + 12] == 0) {
+        if (rocks[8] == 0) {
             rocks[13] += rocks[4];
             rocks[4] = 0;
         }
     } else if (rocks[12] % 9 == 0) {
-        if (rocks[rocks[12] + 12] == 0) {
+        if (rocks[7] == 0) {
             rocks[13] += rocks[5];
             rocks[5] = 0;
         }
