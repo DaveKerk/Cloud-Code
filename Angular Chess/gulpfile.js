@@ -1,6 +1,7 @@
 "use strict";
-var gulp = require('gulp');
-var path = require('path');
+Object.defineProperty(exports, "__esModule", { value: true });
+var gulp = require("gulp");
+var path = require("path");
 gulp.task('dist', function (done) {
     var webpack = require('webpack');
     webpack({

@@ -503,6 +503,12 @@ int takeAllTen() {
 }
 
 int takeAllEleven() {
+    if (rocks[11] > 2) {
+        int l = rocks[11];
+
+    }
+
+
     if (rocks[11] % 14 == 0) {
         if (rocks[11] == 0) {
             rocks[13] += rocks[1];
