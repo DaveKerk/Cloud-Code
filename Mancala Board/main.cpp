@@ -503,12 +503,8 @@ int takeAllTen() {
 }
 
 int takeAllEleven() {
-    if (rocks[11] > 2) {
-        int l = rocks[11];
-
-    }
-
-
+    int l = rocks[11];
+    l -= 2;
     if (rocks[11] % 14 == 0) {
         if (rocks[11] == 0) {
             rocks[13] += rocks[1];
@@ -608,12 +604,18 @@ int gameOverCheck() {
     }
 }
 
+//Players turn.
+int playersTurn(int playerTurn) {
+    cout << playerTurn;
+    if (playerTurn % 2 == 0) {
+        cout << "It is PLAYER TWO'S turn." << endl;
+    } else {
+        cout << "It is PLAYER ONE'S turn." << endl;
+    }
+}
+
 //Controls function.
 int controls() {
-    //const char *12="A";
-    //const char *B="11";
-    //const char *C="12";
-
     char holdNumber;
     cin >> holdNumber;
     switch (holdNumber) {
@@ -631,6 +633,9 @@ int controls() {
                 rocks[rocks[0]] += 1;
                 rocks[0] -= 1;
             }
+            int v;
+            v++;
+            playersTurn(v);
             break;
         }
         case '1' : {
@@ -647,6 +652,7 @@ int controls() {
                 rocks[rocks[1] + 1] += 1;
                 rocks[1] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case '2' : {
@@ -663,6 +669,7 @@ int controls() {
                 rocks[rocks[2] + 2] += 1;
                 rocks[2] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case '3' : {
@@ -679,6 +686,7 @@ int controls() {
                 rocks[rocks[3] + 3] += 1;
                 rocks[3] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case '4' : {
@@ -695,6 +703,7 @@ int controls() {
                 rocks[rocks[4] + 4] += 1;
                 rocks[4] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case '5' : {
@@ -711,6 +720,7 @@ int controls() {
                 rocks[rocks[5] + 5] += 1;
                 rocks[5] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case '7' : {
@@ -727,6 +737,7 @@ int controls() {
                 rocks[rocks[7] + 7] += 1;
                 rocks[7] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case '8' : {
@@ -743,6 +754,7 @@ int controls() {
                 rocks[rocks[8] + 8] += 1;
                 rocks[8] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case '9' : {
@@ -759,6 +771,7 @@ int controls() {
                 rocks[rocks[9] + 9] += 1;
                 rocks[9] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case 'A': {
@@ -775,6 +788,7 @@ int controls() {
                 rocks[rocks[10] + 10] += 1;
                 rocks[10] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case 'B': {
@@ -791,6 +805,7 @@ int controls() {
                 rocks[rocks[11] + 11] += 1;
                 rocks[11] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         case 'C': {
@@ -807,6 +822,7 @@ int controls() {
                 rocks[rocks[12] + 12] += 1;
                 rocks[12] -= 1;
             }
+            playersTurn(+1);
             break;
         }
         default: {
