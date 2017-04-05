@@ -2,31 +2,35 @@
 
 using namespace std;
 
-void primeChecker(int prime) {
-    for (int i = 2; i <= prime; i++) {
+void primeChecker(long prime) {
+    long i = prime - 1;
+    bool primeBool = true;
+    while (i >= 2) {
         if (prime % i == 0) {
-            cout << "Your number is a prime!";
+            primeBool = false;
             break;
         }
+        i--;
+    }
+    if (primeBool == true) {
+        cout << "Your number is a prime!!!" << endl;
+    } else {
+        cout << "Your number is not a prime!" << endl;
     }
 }
 
 int main() {
     cout << "This is a program to check if a number is a prime number." << endl;
     cout << "Are you familiar with what a prime number is?" << endl << "Y/N?" << endl;
-    bool responseBool = true;
-    string response;
+    char response;
     cin >> response;
-    if (response != "y" || response != "Y") {
-        responseBool=false;
-    }
-    if (responseBool == true) {
+    if (response == 'y' || response == 'Y') {
         cout << "Excellent! We shall continue then!" << endl;
     } else {
         cout << "A prime number is a number that is only divisible by itself and the number one." << endl;
     }
     cout << "Now, enter the number that you are curious if it's a prime or not." << endl;
-    int prime;
+    long double prime;
     cin >> prime;
     primeChecker(prime);
     return 0;
