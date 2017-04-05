@@ -1,0 +1,3 @@
+C:/Users/david/Desktop/Cloud Code/Prime Number Checker/cmake-build-debug/CMakeFiles/Prime_Number_Checker.dir
+C:/Users/david/Desktop/Cloud Code/Prime Number Checker/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/david/Desktop/Cloud Code/Prime Number Checker/cmake-build-debug/CMakeFiles/rebuild_cache.dir
