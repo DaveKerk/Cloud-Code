@@ -2,8 +2,8 @@
 
 using namespace std;
 
-void primeChecker(unsigned long prime) {
-    unsigned long i = prime - 1;
+void primeChecker(unsigned long long prime) {
+    unsigned long long i = prime - 1;
     bool primeBool = true;
     while (i >= 2) {
         if (prime % i == 0) {
@@ -12,7 +12,7 @@ void primeChecker(unsigned long prime) {
         }
         i--;
     }
-    if (primeBool == true) {
+    if (primeBool) {
         cout << "Your number is a prime!!!" << endl;
     } else {
         cout << "Your number is not a prime!" << endl;
