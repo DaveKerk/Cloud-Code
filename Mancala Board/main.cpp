@@ -7,7 +7,7 @@ using namespace std;
 int rocks[14];
 
 //Sets the initial count of rocks in each hold.
-int initialRocks() {
+void initialRocks() {
     //Define each value.
     rocks[0] = 4;
     rocks[1] = 4;
@@ -40,31 +40,31 @@ int initialRocks() {
 }
 
 // Top and bottom.
-int allStars() {
+void allStars() {
     for (int i = 0; i <= 57; i++)cout << '*';
 }
 
 // Straight line of stars on middle line.
-int lessAllStars() {
+void lessAllStars() {
     for (int j = 0; j <= 42; j++)cout << '*';
 }
 
 // The middle line.
-int middle() {
+void middle() {
     cout << "*  13  ";
     lessAllStars();
     cout << "   6   *";
 }
 
 // Normal line without numbers.
-int normStars() {
+void normStars() {
     cout << '*';
     for (int e = 0; e <= 6; e++)cout << setw(7) << '*';
     cout << setw(8) << '*';
 }
 
 // Numbers 0 through 5.
-int upNum() {
+void upNum() {
     cout << '*' << " ";
     for (int k = 0; k <= 7; k++) {
         if (k <= 6 && k >= 1) {
@@ -78,7 +78,7 @@ int upNum() {
 }
 
 // Numbers 7 through 12.
-int downNum() {
+void downNum() {
     cout << '*';
     for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
@@ -92,7 +92,7 @@ int downNum() {
 }
 
 //This will display the amount of rocks in each hold. LINE 5
-int scoreDisplayUp() {
+void scoreDisplayUp() {
     cout << '*' << " ";
     for (int k = 0; k <= 7; k++) {
         if (k <= 6 && k >= 1) {
@@ -106,7 +106,7 @@ int scoreDisplayUp() {
 }
 
 //This will display the amount of rocks in each hold. LINE 11
-int scoreDisplayDown() {
+void scoreDisplayDown() {
     cout << '*';
     for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
@@ -120,14 +120,14 @@ int scoreDisplayDown() {
 }
 
 //This will display the amount of rocks in each hold. LINE 8
-int scoreDisplayMiddle() {
+void scoreDisplayMiddle() {
     cout << '*' << setw(4) << rocks[13] << setw(3) << '*';
     for (int e = 1; e <= 6; e++)cout << setw(7) << '*';
     cout << setw(4) << rocks[6] << setw(4) << '*';
 }
 
 //Outputs the entire board.
-int entireBoard() {
+void entireBoard() {
     for (int w = 0; w <= 13; w++) {
         if (w == 1 || w == 13) {
             allStars();
@@ -154,7 +154,7 @@ int entireBoard() {
     Functions that implement the "Land in a zero hold take the other's rocks" rule.
 */
 
-int takeAllZero() {
+void takeAllZero() {
     if (rocks[0] % 14 == 0) {
         if (rocks[rocks[0]] == 0) {
             rocks[6] += rocks[12];
@@ -188,7 +188,7 @@ int takeAllZero() {
     }
 }
 
-int takeAllOne() {
+void takeAllOne() {
     if (rocks[1] % 14 == 0) {
         if (rocks[rocks[1] + 1] == 0) {
             rocks[6] += rocks[11];
@@ -222,7 +222,7 @@ int takeAllOne() {
     }
 }
 
-int takeAllTwo() {
+void takeAllTwo() {
     if (rocks[2] % 14 == 0) {
         if (rocks[rocks[2] + 2] == 0) {
             rocks[6] += rocks[10];
@@ -258,7 +258,7 @@ int takeAllTwo() {
     }
 }
 
-int takeAllThree() {
+void takeAllThree() {
     if (rocks[3] % 14 == 0) {
         if (rocks[rocks[3] + 3] == 0) {
             rocks[6] += rocks[9];
@@ -294,7 +294,7 @@ int takeAllThree() {
     }
 }
 
-int takeAllFour() {
+void takeAllFour() {
     if (rocks[4] % 14 == 0) {
         if (rocks[rocks[4] + 4] == 0) {
             rocks[6] += rocks[8];
@@ -330,7 +330,7 @@ int takeAllFour() {
     }
 }
 
-int takeAllFive() {
+void takeAllFive() {
     if (rocks[5] % 14 == 0) {
         if (rocks[rocks[5] + 5] == 0) {
             rocks[6] += rocks[7];
@@ -366,7 +366,7 @@ int takeAllFive() {
     }
 }
 
-int takeAllSeven() {
+void takeAllSeven() {
     if (rocks[7] % 14 == 0) {
         if (rocks[rocks[7] + 7] == 0) {
             rocks[13] += rocks[5];
@@ -400,7 +400,7 @@ int takeAllSeven() {
     }
 }
 
-int takeAllEight() {
+void takeAllEight() {
     if (rocks[8] % 14 == 0) {
         if (rocks[rocks[8] + 8] == 0) {
             rocks[13] += rocks[4];
@@ -434,7 +434,7 @@ int takeAllEight() {
     }
 }
 
-int takeAllNine() {
+void takeAllNine() {
     if (rocks[9] % 14 == 0) {
         if (rocks[rocks[9] + 9] == 0) {
             rocks[13] += rocks[3];
@@ -468,7 +468,7 @@ int takeAllNine() {
     }
 }
 
-int takeAllTen() {
+void takeAllTen() {
     if (rocks[10] % 14 == 0) {
         if (rocks[rocks[10] + 10] == 0) {
             rocks[13] += rocks[2];
@@ -502,7 +502,7 @@ int takeAllTen() {
     }
 }
 
-int takeAllEleven() {
+void takeAllEleven() {
     int l = rocks[11];
     l -= 2;
     if (rocks[11] % 14 == 0) {
@@ -538,7 +538,7 @@ int takeAllEleven() {
     }
 }
 
-int takeAllTwelve() {
+void takeAllTwelve() {
     if (rocks[12] % 14 == 0) {
         if (rocks[12] == 0) {
             rocks[13] += rocks[0];
@@ -573,7 +573,7 @@ int takeAllTwelve() {
 }
 
 //gameOverCheck function on the instruction sheet.
-int gameOverCheck() {
+void gameOverCheck() {
     if (rocks[0] == 0 && rocks[1] == 0 && rocks[2] == 0 && rocks[3] == 0 && rocks[4] == 0 && rocks[5] == 0) {
         rocks[6] += rocks[7];
         rocks[7] = 0;
@@ -605,7 +605,7 @@ int gameOverCheck() {
 }
 
 //Players turn.
-int playersTurn(int playerTurn) {
+void playersTurn(int playerTurn) {
     cout << playerTurn;
     if (playerTurn % 2 == 0) {
         cout << "It is PLAYER TWO'S turn." << endl;
@@ -615,7 +615,7 @@ int playersTurn(int playerTurn) {
 }
 
 //Controls function.
-int controls() {
+void controls() {
     char holdNumber;
     cin >> holdNumber;
     switch (holdNumber) {
@@ -832,7 +832,7 @@ int controls() {
 }
 
 //Lets the game continue and declares winner at end.
-int gameContinue() {
+void gameContinue() {
     while (
             rocks[0] > 0 || rocks[1] > 0 || rocks[2] > 0 || rocks[3] > 0 || rocks[4] > 0 || rocks[5] > 0 ||
             rocks[7] > 0 || rocks[8] > 0 || rocks[9] > 0 || rocks[10] > 0 || rocks[11] > 0 || rocks[12] > 0) {
@@ -854,7 +854,7 @@ int gameContinue() {
 }
 
 //Function to number the top holds.
-int blockNumbererUp() {
+void blockNumbererUp() {
     for (int i = 0; i <= 5; i++) {
         cout << "Enter the value of block " << i << ":";
         cin >> rocks[i];
@@ -868,7 +868,7 @@ int blockNumbererUp() {
 }
 
 //Function to number the bottom holds.
-int blockNumbererDown() {
+void blockNumbererDown() {
     for (int i = 7; i <= 12; i++) {
         cout << "Enter the value of block " << i << ":";
         cin >> rocks[i];
@@ -882,7 +882,7 @@ int blockNumbererDown() {
 }
 
 //Function to number all holds.
-int blockNumbererAll() {
+void blockNumbererAll() {
     blockNumbererUp();
     blockNumbererDown();
 }

@@ -2,13 +2,13 @@
 
 using namespace std;
 
-void primeChecker(long prime) {
-    long i = prime - 1;
+void primeChecker(unsigned long prime) {
+    unsigned long i = prime - 1;
     bool primeBool = true;
     while (i >= 2) {
         if (prime % i == 0) {
             primeBool = false;
-            break;
+            i=2;
         }
         i--;
     }

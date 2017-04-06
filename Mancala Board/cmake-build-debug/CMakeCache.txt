@@ -94,7 +94,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Mancala_Board_
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Mancala_Board
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/MinGW/bin/ld.exe
@@ -136,7 +136,7 @@ CMAKE_RANLIB:FILEPATH=C:/MinGW/bin/ranlib.exe
 CMAKE_RC_COMPILER:FILEPATH=C:/MinGW/bin/windres.exe
 
 //Flags for Windows Resource Compiler.
-CMAKE_RC_FLAGS:STRING=' '
+CMAKE_RC_FLAGS:STRING=
 
 //Path to a program.
 CMAKE_SH:FILEPATH=CMAKE_SH-NOTFOUND
@@ -193,12 +193,6 @@ Mancala_Board_BINARY_DIR:STATIC=C:/Users/david/Desktop/Cloud Code/Mancala Board/
 //Value Computed by CMake
 Mancala_Board_SOURCE_DIR:STATIC=C:/Users/david/Desktop/Cloud Code/Mancala Board
 
-//Value Computed by CMake
-Mancala_Board__BINARY_DIR:STATIC=C:/Users/david/Desktop/Cloud Code/Mancala Board/cmake-build-debug
-
-//Value Computed by CMake
-Mancala_Board__SOURCE_DIR:STATIC=C:/Users/david/Desktop/Cloud Code/Mancala Board
-
 
 ########################
 # INTERNAL cache entries
@@ -211,9 +205,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=c:/Users/david/Desktop/Cloud Code/Mancala Board/cma
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=6
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=7
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -311,7 +305,7 @@ CMAKE_RC_COMPILER_WORKS:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_FLAGS
 CMAKE_RC_FLAGS-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=D:/CLion 2016.3.2/bin/cmake/share/cmake-3.6
+CMAKE_ROOT:INTERNAL=D:/CLion 2016.3.2/bin/cmake/share/cmake-3.7
 //ADVANCED property for variable: CMAKE_SH
 CMAKE_SH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
