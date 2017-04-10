@@ -30,7 +30,7 @@ int main() {
         cout << "A prime number is a number that is only divisible by itself and the number one." << endl;
     }
     cout << "Now, enter the number that you are curious if it's a prime or not." << endl;
-    long double prime;
+    unsigned long long prime;
     cin >> prime;
     primeChecker(prime);
     return 0;
