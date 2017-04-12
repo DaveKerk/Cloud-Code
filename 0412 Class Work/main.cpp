@@ -121,20 +121,21 @@ bool isIn(const float value, const float list[], const int size) {
 }
 
 int firstLocation(const float value, const float array[], const int size) {
-    for (int i = 0; i < size; i++) {
+    int firstLocation = -1;
+    while () {
         if (value == array[i]) {
-            return i;
+            firstLocation = i;
         }
     }
-    return -1;
+    return firstLocation;
 }
 
 int allLocations(const float value, const float array[], const int size) {
     int sum = 0;
     for (int i = 0; i < size; i++) {
         if (value == array[i]) {
-            sum++;
             cout << "Found in location:" << i << endl;
+            sum++;
         }
     }
     return sum;
