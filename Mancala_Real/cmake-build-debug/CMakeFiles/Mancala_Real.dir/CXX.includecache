@@ -6,7 +6,9 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/david/Desktop/Cloud Code/Prime Number Checker/main.cpp
+C:/Users/david/Desktop/Cloud-Code/Mancala_Real/main.cpp
 iostream
+-
+iomanip
 -
 
