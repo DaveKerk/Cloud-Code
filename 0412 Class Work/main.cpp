@@ -32,8 +32,10 @@
 #endif
 // HERE
 
+
 // C++ include files:
 #include <iostream> // I/O manipulation; e.g., cout.
+#include <vector>
 
 using namespace std;
 
@@ -67,6 +69,8 @@ int firstLocation(const float value, const float array[], const int size);
 // Return the number of matching values [0, size].
 int allLocations(const float value, const float array[], const int size);
 
+
+
 // 0000001111111111222222222233333333334444444444555555555566666666667777777777
 // 4567890123456789012345678901234567890123456789012345678901234567890123456789
 //
@@ -75,7 +79,12 @@ int allLocations(const float value, const float array[], const int size);
 // This program will search for a value within an array.
 //
 //
+using std::vector;
+
 int main(int argc, char *argv[]) {
+    std::vector<int> abc;
+
+
     // The total number of elements in the array. The const keyword is used to
     // indicate that this is a constant number that will not be changed throughout
     // the program. It is advisable to use const when you do not intend to change
@@ -86,6 +95,7 @@ int main(int argc, char *argv[]) {
     // because it is taken emplicitly from the static declaration of the array
     // values after the = sign:
     float scores[] = {70, 85, 90, 100, 95, 85, 75, 70, 78, 58};
+    float sorted[] = { 58, 70, 70, 75, 78, 85, 85, 90, 95, 100 };
 
     for (bool go = true; go;) {
         float value = 0;
@@ -121,13 +131,12 @@ bool isIn(const float value, const float list[], const int size) {
 }
 
 int firstLocation(const float value, const float array[], const int size) {
-    int firstLocation = -1;
-    while () {
+    for (int i = 0; i < size; i++) {
         if (value == array[i]) {
-            firstLocation = i;
+            return i;
         }
     }
-    return firstLocation;
+    return -1;
 }
 
 int allLocations(const float value, const float array[], const int size) {
@@ -140,3 +149,8 @@ int allLocations(const float value, const float array[], const int size) {
     }
     return sum;
 }
+// MESS WITH THIS LATER
+int sort(const float value, const float array[], const int size) {
+
+}
+

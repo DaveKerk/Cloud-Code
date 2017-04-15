@@ -29,7 +29,9 @@ void startingArray() {
 }
 
 //  Function Name: makeSolidLine
-//  Function: Outputs a solid line of stars.
+//  Function: Outputs a solid line of stars based on an input parameter.
+//  Parameter: numOfStars: referenced in the showBoard function to output the correct number of stars for the
+//             appropriate line.
 void makeSolidLine(int numOfStars) {
     for (int i = 0; i <= numOfStars; i++)cout << '*';
 }
@@ -46,14 +48,18 @@ void middle() {
 //  Function Name: makeDottedLine
 //  Function: Makes the dotted line without number labels.
 void makeDottedLine() {
-    cout << '*';
-    for (int e = 0; e <= 6; e++)cout << setw(7) << '*';
-    cout << setw(8) << '*';
+    for (int i = 0; i < 8; i++) {
+        cout << '*';
+        for (int j = 0; j < 6; j++) {
+            cout << ' ';
+        }
+    }
+    cout << " *";
 }
 
-//  Function Name: upNumDisplay
+//  Function Name: showTopRowNumbers
 //  Function: Displays the number labels for numbers 1 through 5.
-void upNumDisplay() {
+void showTopRowNumbers() {
     cout << '*' << " ";
     for (int k = 0; k <= 7; k++) {
         if (k <= 6 && k >= 1) {
@@ -66,9 +72,9 @@ void upNumDisplay() {
     }
 }
 
-//  Function Name: downNumDisplay
+//  Function Name: showBottomRowNumbers
 //  Function: Displays the number labels for numbers 7 through 12.
-void downNum() {
+void showBottomRowNumbers() {
     cout << '*';
     for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
@@ -82,7 +88,7 @@ void downNum() {
 }
 
 //This will display the amount of beads in each hold. LINE 5
-void scoreDisplayUp() {
+void showTopBins() {
     cout << '*' << " ";
     for (int k = 0; k <= 7; k++) {
         if (k <= 6 && k >= 1) {
@@ -96,7 +102,7 @@ void scoreDisplayUp() {
 }
 
 //This will display the amount of beads in each hold. LINE 11
-void scoreDisplayDown() {
+void showBottomBins() {
     cout << '*';
     for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
@@ -110,7 +116,7 @@ void scoreDisplayDown() {
 }
 
 //This will display the amount of beads in each hold. LINE 8
-void scoreDisplayMiddle() {
+void showMiddleBins() {
     cout << '*' << setw(4) << beads[13] << setw(3) << '*';
     for (int e = 1; e <= 6; e++)cout << setw(7) << '*';
     cout << setw(4) << beads[6] << setw(4) << '*';
@@ -122,19 +128,19 @@ void showBoard() {
         if (w == 1 || w == 13) {
             makeSolidLine(57);
         } else if (w == 4) {
-            upNumDisplay();
+            showTopRowNumbers();
         } else if (w == 5) {
-            scoreDisplayUp();
+            showTopBins();
         } else if (w == 7) {
             cout << "*  13  ";
             makeSolidLine(42);
             cout << "   6   *";
         } else if (w == 8) {
-            scoreDisplayMiddle();
+            showMiddleBins();
         } else if (w == 10) {
-            downNum();
+            showBottomRowNumbers();
         } else if (w == 11) {
-            scoreDisplayDown();
+            showBottomBins();
         } else if (w >= 2 && w <= 12) {
             makeDottedLine();
         }
@@ -190,14 +196,29 @@ void gameContinue() {
         cout << "PLAYER ONE WINS!!";
     } else if (beads[13] > beads[6]) {
         cout << "PLAYER TWO WINS!!";
-    } else if (beads[6] == beads[13]) {
+    } else if (beads[6] == beads[13])} else if (input > 7 && input < 13 && playerTurn == 2) {
+
+    } else {
+        cout << "Invalid input!" << endl << "Please try again." << endl;
+    } {
         cout << "YOU TIED!" << endl << endl << "...how?";
     }
 }
 
+void getStartingBin(int input) {
+    int playerTurn = 1;
+    if (input > 6 && playerTurn == 1) {
+
+
+    }
+
 int main() {
     startingArray();
     showBoard();
-    gameContinue();
+    cout << "What bin would you like to start in?" << endl;
+    int input;
+    cin >> input;
+    getStartingBin(input);
+//    gameContinue();
     return 0;
 }

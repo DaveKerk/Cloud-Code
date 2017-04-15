@@ -2,21 +2,17 @@
 
 using namespace std;
 
-void primeChecker(unsigned long long prime) {
-    unsigned long long i = prime - 1;
+bool primeChecker(unsigned long long prime) {
+    unsigned long long i = (prime/2) - 1;
     bool primeBool = true;
     while (i >= 2) {
         if (prime % i == 0) {
             primeBool = false;
-            i=2;
+            break;
         }
         i--;
     }
-    if (primeBool) {
-        cout << "Your number is a prime!!!" << endl;
-    } else {
-        cout << "Your number is not a prime!" << endl;
-    }
+    return !primeBool;
 }
 
 int main() {
@@ -32,6 +28,11 @@ int main() {
     cout << "Now, enter the number that you are curious if it's a prime or not." << endl;
     unsigned long long prime;
     cin >> prime;
-    primeChecker(prime);
+
+    if (primeChecker(prime)) {
+        cout << "Your number is a prime!!!" << endl;
+    } else {
+        cout << "Your number is not a prime!" << endl;
+    }
     return 0;
 }
