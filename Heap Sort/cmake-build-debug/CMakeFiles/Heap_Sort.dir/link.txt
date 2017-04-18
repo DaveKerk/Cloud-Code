@@ -1,0 +1,3 @@
+"D:\CLion 2016.3.2\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\Heap_Sort.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\Heap_Sort.dir/objects.a @CMakeFiles\Heap_Sort.dir\objects1.rsp
+C:\MinGW\bin\g++.exe  -g   -Wl,--whole-archive CMakeFiles\Heap_Sort.dir/objects.a -Wl,--no-whole-archive  -o Heap_Sort.exe -Wl,--out-implib,libHeap_Sort.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Heap_Sort.dir\linklibs.rsp

@@ -196,29 +196,28 @@ void gameContinue() {
         cout << "PLAYER ONE WINS!!";
     } else if (beads[13] > beads[6]) {
         cout << "PLAYER TWO WINS!!";
-    } else if (beads[6] == beads[13])} else if (input > 7 && input < 13 && playerTurn == 2) {
-
-    } else {
-        cout << "Invalid input!" << endl << "Please try again." << endl;
-    } {
+    } else if (beads[6] == beads[13]) {
         cout << "YOU TIED!" << endl << endl << "...how?";
     }
 }
 
-void getStartingBin(int input) {
-    int playerTurn = 1;
-    if (input > 6 && playerTurn == 1) {
-
-
+    void getStartingBin(int input) {
+        int playerTurn = 1;
+        if (input > 6 && playerTurn == 1) {
+            cout << "Invalid input!" << endl << "Please try again." << endl;
+        } else if (input > 7 && input < 13 && playerTurn == 2) {
+            cout << "Invalid input!" << endl << "Please try again." << endl;
+        }
     }
 
-int main() {
-    startingArray();
-    showBoard();
-    cout << "What bin would you like to start in?" << endl;
-    int input;
-    cin >> input;
-    getStartingBin(input);
+    int main() {
+        startingArray();
+        showBoard();
+        cout << "What bin would you like to start in?" << endl;
+        int input;
+        cin >> input;
+        getStartingBin(input);
 //    gameContinue();
-    return 0;
-}
+
+        return 0;
+    }
