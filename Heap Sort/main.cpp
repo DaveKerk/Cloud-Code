@@ -10,10 +10,10 @@ void heapify(int i, int arrayCount, int mainArray[]) {
     int leftChild = (2 * i) + 1;
     int rightChild = (2 * i) + 2;
 
-    if (leftChild < arrayCount && mainArray[leftChild] > mainArray[parent]) {
+    if (leftChild < arrayCount && mainArray[leftChild] >= mainArray[parent]) {
         parent = leftChild;
     }
-    if (rightChild < arrayCount && mainArray[rightChild] > mainArray[parent]) {
+    if (rightChild < arrayCount && mainArray[rightChild] >= mainArray[parent]) {
         parent = rightChild;
     }
     if (parent != i) {
@@ -24,9 +24,10 @@ void heapify(int i, int arrayCount, int mainArray[]) {
 }
 
 void heapSort(int arrayCount, int mainArray[]) {
-    for (int i = arrayCount/2-1; i >= 0; i--)
+    for (int i = arrayCount / 2 - 1; i >= 0; i--) {
         heapify(i, arrayCount, mainArray);
-    for (int i = arrayCount-1; i >= 0; i--) {
+    }
+    for (int i = arrayCount - 1; i >= 0; i--) {
         swap(mainArray[0], mainArray[i]);
 
         heapify(i, arrayCount, mainArray);
@@ -45,8 +46,9 @@ int main() {
     int arrayCount = 5;
 //    cin >> arrayCount;
     int mainArray[5] = {1, 2, 3, 4, 5};
-    for (int i = 0; i < arrayCount; i++)
+    for (int i = 0; i < arrayCount; i++) {
         mainArray[i] = ((rand() % arrayCount) + 1);
+    }
     for (int i = 0; i < arrayCount; i++) {
         cout << mainArray[i] << setw(4) << i << endl;
     }
