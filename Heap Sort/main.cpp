@@ -1,4 +1,3 @@
-/*
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -13,11 +12,13 @@ void heapify(int i, int arrayCount, int mainArray[]) {
 
     if (leftChild < arrayCount && mainArray[leftChild] >= mainArray[parent]) {
         //parent = leftChild;
-        swap(mainArray[parent],mainArray[leftChild]);
+        swap(mainArray[parent], mainArray[leftChild]);
+        swap(mainArray[i], mainArray[parent]);
     }
     if (rightChild < arrayCount && mainArray[rightChild] >= mainArray[parent]) {
         //parent = rightChild;
-        swap(mainArray[parent],mainArray[rightChild]);
+        swap(mainArray[parent], mainArray[rightChild]);
+        swap(mainArray[i], mainArray[parent]);
     }
     if (parent != i) {
         swap(mainArray[i], mainArray[parent]);
@@ -29,7 +30,7 @@ void heapify(int i, int arrayCount, int mainArray[]) {
 }
 
 void heapSort(int arrayCount, int mainArray[]) {
-    for (int i = arrayCount/2; i >= 0; i--) {
+    for (int i = arrayCount / 2; i >= 0; i--) {
         heapify(i, arrayCount, mainArray);
     }
     for (int i = arrayCount - 1; i >= 0; i--) {
@@ -63,8 +64,9 @@ int main() {
         cout << mainArray[i] << setw(4) << i << endl;
     }
     return 0;
-}*/
+}
 
+/*
 // C++ program for implementation of Heap Sort
 #include <iostream>
 using namespace std;
@@ -113,7 +115,9 @@ void heapSort(int arr[], int n)
     }
 }
 
-/* A utility function to print array of size n */
+*/
+/* A utility function to print array of size n *//*
+
 void printArray(int arr[], int n)
 {
     for (int i=0; i<n; ++i)
@@ -132,3 +136,4 @@ int main()
     cout << "Sorted array is \n";
     printArray(arr, n);
 }
+*/
