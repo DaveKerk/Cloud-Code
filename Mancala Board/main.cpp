@@ -883,12 +883,12 @@ void blockNumbererDown() {
 
 //Function to number all holds.
 void blockNumbererAll() {
-    blockNumbererUp();
     blockNumbererDown();
 }
 
 int main() {
     initialRocks();
+    blockNumbererUp();
     //blockNumbererAll();
     //blockNumbererDown();
     entireBoard();

@@ -11,14 +11,10 @@ void heapify(int i, int arrayCount, int mainArray[]) {
     int rightChild = (2 * i) + 2;
 
     if (leftChild < arrayCount && mainArray[leftChild] >= mainArray[parent]) {
-        //parent = leftChild;
-        swap(mainArray[parent], mainArray[leftChild]);
-        swap(mainArray[i], mainArray[parent]);
+        parent = leftChild;
     }
     if (rightChild < arrayCount && mainArray[rightChild] >= mainArray[parent]) {
-        //parent = rightChild;
-        swap(mainArray[parent], mainArray[rightChild]);
-        swap(mainArray[i], mainArray[parent]);
+        parent = rightChild;
     }
     if (parent != i) {
         swap(mainArray[i], mainArray[parent]);
@@ -49,9 +45,9 @@ int main() {
 
     //The following code generates an array of *arrayCount* random numbers using
     //srand to randomize the numbers as they are generated and placed in the array.
-    int arrayCount = 10;
+    int arrayCount = 7;
 //    cin >> arrayCount;
-    int mainArray[10] = {1, 2, 3, 4, 5};
+    int mainArray[7] = {1, 2, 3, 4, 5, 6, 7};
     for (int i = 0; i < arrayCount; i++) {
         mainArray[i] = ((rand() % arrayCount) + 1);
     }
@@ -59,6 +55,9 @@ int main() {
         cout << mainArray[i] << setw(4) << i << endl;
     }
     system("PAUSE");
+   // int n = sizeof(mainArray)/sizeof(mainArray[0]); // Didn't work.
+   // cout << n << endl;
+   // system("PAUSE");
     heapSort(arrayCount, mainArray);
     for (int i = 0; i < arrayCount; i++) {
         cout << mainArray[i] << setw(4) << i << endl;
