@@ -888,7 +888,7 @@ void blockNumbererAll() {
 
 int main() {
     initialRocks();
-    blockNumbererUp();
+    //blockNumbererUp();
     //blockNumbererAll();
     //blockNumbererDown();
     entireBoard();
