@@ -620,7 +620,7 @@ void controls() {
     cin >> holdNumber;
     switch (holdNumber) {
         case '0' : {
-            takeAllZero();
+        //   takeAllZero();
             if (rocks[0] > 13) {
                 int j;
                 j = rocks[0] - 13;
@@ -639,7 +639,7 @@ void controls() {
             break;
         }
         case '1' : {
-            takeAllOne();
+         //   takeAllOne();
             if (rocks[1] > 12) {
                 int j;
                 j = rocks[1] - 12;
@@ -656,7 +656,7 @@ void controls() {
             break;
         }
         case '2' : {
-            takeAllTwo();
+          //  takeAllTwo();
             if (rocks[2] > 11) {
                 int j;
                 j = rocks[2] - 11;
@@ -673,7 +673,7 @@ void controls() {
             break;
         }
         case '3' : {
-            takeAllThree();
+          //  takeAllThree();
             if (rocks[3] > 10) {
                 int j;
                 j = rocks[3] - 10;
@@ -690,7 +690,7 @@ void controls() {
             break;
         }
         case '4' : {
-            takeAllFour();
+           // takeAllFour();
             if (rocks[4] > 9) {
                 int j;
                 j = rocks[4] - 9;
@@ -707,7 +707,7 @@ void controls() {
             break;
         }
         case '5' : {
-            takeAllFive();
+           // takeAllFive();
             if (rocks[5] > 8) {
                 int j;
                 j = rocks[5] - 8;
@@ -724,7 +724,7 @@ void controls() {
             break;
         }
         case '7' : {
-            takeAllSeven();
+        //    takeAllSeven();
             if (rocks[7] > 6) {
                 int j;
                 j = rocks[7] - 6;
@@ -741,7 +741,7 @@ void controls() {
             break;
         }
         case '8' : {
-            takeAllEight();
+         //   takeAllEight();
             if (rocks[8] > 5) {
                 int j;
                 j = rocks[8] - 5;
@@ -758,7 +758,7 @@ void controls() {
             break;
         }
         case '9' : {
-            takeAllNine();
+         //   takeAllNine();
             if (rocks[9] > 4) {
                 int j;
                 j = rocks[9] - 4;
@@ -775,7 +775,7 @@ void controls() {
             break;
         }
         case 'A': {
-            takeAllTen();
+         //   takeAllTen();
             if (rocks[10] > 3) {
                 int j;
                 j = rocks[10] - 3;
@@ -792,7 +792,7 @@ void controls() {
             break;
         }
         case 'B': {
-            takeAllEleven();
+          //  takeAllEleven();
             if (rocks[11] > 2) {
                 int j;
                 j = rocks[11] - 2;
@@ -809,7 +809,7 @@ void controls() {
             break;
         }
         case 'C': {
-            takeAllTwelve();
+         //   takeAllTwelve();
             if (rocks[12] > 1) {
                 int j;
                 j = rocks[12] - 1;
