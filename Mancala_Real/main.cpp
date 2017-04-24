@@ -16,16 +16,16 @@
 
 using namespace std;
 
-int beads[14];
+int beadArray[14];
 
-//  Function Name: beadsArray
-//  Function: Initializes the beads array and assigns values to the respective pots.
+//  Function Name: beadArrayArray
+//  Function: Initializes the beadArray array and assigns values to the respective pots.
 void startingArray() {
     for (int i = 0; i <= 13; i++) {
-        beads[i] = 4;
+        beadArray[i] = 4;
     }
-    beads[6] = 0;
-    beads[13] = 0;
+    beadArray[6] = 0;
+    beadArray[13] = 0;
 }
 
 //  Function Name: makeSolidLine
@@ -87,12 +87,12 @@ void showBottomRowNumbers() {
     }
 }
 
-//This will display the amount of beads in each hold. LINE 5
+//This will display the amount of beadArray in each hold. LINE 5
 void showTopBins() {
     cout << '*' << " ";
     for (int k = 0; k <= 7; k++) {
         if (k <= 6 && k >= 1) {
-            cout << setw(4) << beads[k - 1] << setw(3) << '*';
+            cout << setw(4) << beadArray[k - 1] << setw(3) << '*';
         } else if (k == 7) {
             cout << setw(8) << '*';
         } else { //only the first one
@@ -101,12 +101,12 @@ void showTopBins() {
     }
 }
 
-//This will display the amount of beads in each hold. LINE 11
+//This will display the amount of beadArray in each hold. LINE 11
 void showBottomBins() {
     cout << '*';
     for (int l = 13; l >= 6; l--) {
         if (l <= 12 && l >= 7) {
-            cout << setw(4) << beads[l] << setw(3) << '*';
+            cout << setw(4) << beadArray[l] << setw(3) << '*';
         } else if (l == 13) {
             cout << setw(7) << '*';
         } else { //only the first one
@@ -115,11 +115,11 @@ void showBottomBins() {
     }
 }
 
-//This will display the amount of beads in each hold. LINE 8
+//This will display the amount of beadArray in each hold. LINE 8
 void showMiddleBins() {
-    cout << '*' << setw(4) << beads[13] << setw(3) << '*';
+    cout << '*' << setw(4) << beadArray[13] << setw(3) << '*';
     for (int e = 1; e <= 6; e++)cout << setw(7) << '*';
-    cout << setw(4) << beads[6] << setw(4) << '*';
+    cout << setw(4) << beadArray[6] << setw(4) << '*';
 }
 
 //Outputs the entire board.
@@ -147,262 +147,124 @@ void showBoard() {
         cout << endl;
     }
 }
-void getStartingBin(int playerTurn);
+
+int getStartingBin(int playerTurn);
+
 //Checks if a player's bins are empty then ends game if so.
-void gameOverCheck() {
-    if (beads[0] == 0 && beads[1] == 0 && beads[2] == 0 && beads[3] == 0 && beads[4] == 0 && beads[5] == 0) {
-        beads[6] += beads[7];
-        beads[7] = 0;
-        beads[6] += beads[8];
-        beads[8] = 0;
-        beads[6] += beads[9];
-        beads[9] = 0;
-        beads[6] += beads[10];
-        beads[10] = 0;
-        beads[6] += beads[11];
-        beads[11] = 0;
-        beads[6] += beads[12];
-        beads[12] = 0;
+bool gameOverCheck() {
+    bool gameOver = false;
+    if (beadArray[0] == 0 && beadArray[1] == 0 && beadArray[2] == 0 && beadArray[3] == 0 && beadArray[4] == 0 &&
+        beadArray[5] == 0) {
+        beadArray[6] += beadArray[7];
+        beadArray[7] = 0;
+        beadArray[6] += beadArray[8];
+        beadArray[8] = 0;
+        beadArray[6] += beadArray[9];
+        beadArray[9] = 0;
+        beadArray[6] += beadArray[10];
+        beadArray[10] = 0;
+        beadArray[6] += beadArray[11];
+        beadArray[11] = 0;
+        beadArray[6] += beadArray[12];
+        beadArray[12] = 0;
+        gameOver = true;
     }
-    if (beads[7] == 0 && beads[8] == 0 && beads[9] == 0 && beads[10] == 0 && beads[11] == 0 && beads[12] == 0) {
-        beads[13] += beads[0];
-        beads[0] = 0;
-        beads[13] += beads[1];
-        beads[1] = 0;
-        beads[13] += beads[2];
-        beads[2] = 0;
-        beads[13] += beads[3];
-        beads[3] = 0;
-        beads[13] += beads[4];
-        beads[4] = 0;
-        beads[13] += beads[5];
-        beads[5] = 0;
+    if (beadArray[7] == 0 && beadArray[8] == 0 && beadArray[9] == 0 && beadArray[10] == 0 && beadArray[11] == 0 &&
+        beadArray[12] == 0) {
+        beadArray[13] += beadArray[0];
+        beadArray[0] = 0;
+        beadArray[13] += beadArray[1];
+        beadArray[1] = 0;
+        beadArray[13] += beadArray[2];
+        beadArray[2] = 0;
+        beadArray[13] += beadArray[3];
+        beadArray[3] = 0;
+        beadArray[13] += beadArray[4];
+        beadArray[4] = 0;
+        beadArray[13] += beadArray[5];
+        beadArray[5] = 0;
+        gameOver = true;
+    }
+    return gameOver;
+}
+
+void dropBeads(int input, int playerTurn) {
+    {
+        int skipBin;
+        bool loop;
+        if (playerTurn % 2 == 0) {
+            skipBin = 6;
+        } else {
+            skipBin = 13;
+        }
+        if (beadArray[input] > (13 - input) - input) {
+            int j;
+            j = beadArray[input] - (13 - input);
+            if (beadArray[beadArray[j] + j] > 0) {
+                int binFinish=beadArray[j]+j;
+            }
+            while (j > 0) {
+                beadArray[j - 1] += 1;
+                j -= 1;
+                if (beadArray[j] + j == skipBin) {
+                    beadArray[skipBin] -= 1;
+                }
+            }
+
+            loop = true;
+        }
+        while (beadArray[input] > 0) {
+            if (beadArray[beadArray[input] + input] > 0 && !loop) {
+
+            }
+            beadArray[beadArray[input] + input] += 1;
+            beadArray[input] -= 1;
+            if (beadArray[input] + input == skipBin) {
+                beadArray[skipBin] -= 1;
+            }
+        }
     }
 }
 
-void playersTurn(int playerTurn) {
+int getStartingBin(int playerTurn) {
     if (playerTurn % 2 == 0) {
         cout << "It is PLAYER TWO'S turn." << endl;
     } else {
         cout << "It is PLAYER ONE'S turn." << endl;
     }
-}
 
-void dropBeads(int holdNumber){
-    if (holdNumber == 0) {
-        if (beads[0] > 13) {
-            int j;
-            j = beads[0] - 13;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[0] > 0) {
-            beads[beads[0]] += 1;
-            beads[0] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 1) {
-        if (beads[1] > 12) {
-            int j;
-            j = beads[1] - 12;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[1] > 0) {
-            beads[beads[1] + 1] += 1;
-            beads[1] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 2) {
-        if (beads[2] > 11) {
-            int j;
-            j = beads[2] - 11;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[2] > 0) {
-            beads[beads[2] + 2] += 1;
-            beads[2] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 3) {
-        if (beads[3] > 10) {
-            int j;
-            j = beads[3] - 10;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[3] > 0) {
-            beads[beads[3] + 3] += 1;
-            beads[3] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 4) {
-        if (beads[4] > 9) {
-            int j;
-            j = beads[4] - 9;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[4] > 0) {
-            beads[beads[4] + 4] += 1;
-            beads[4] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 5) {
-        if (beads[5] > 8) {
-            int j;
-            j = beads[5] - 8;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[5] > 0) {
-            beads[beads[5] + 5] += 1;
-            beads[5] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 7) {
-        if (beads[7] > 6) {
-            int j;
-            j = beads[7] - 6;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[7] > 0) {
-            beads[beads[7] + 7] += 1;
-            beads[7] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 8) {
-        if (beads[8] > 5) {
-            int j;
-            j = beads[8] - 5;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[8] > 0) {
-            beads[beads[8] + 8] += 1;
-            beads[8] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 9) {
-        if (beads[9] > 4) {
-            int j;
-            j = beads[9] - 4;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[9] > 0) {
-            beads[beads[9] + 9] += 1;
-            beads[9] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 10) {
-        if (beads[10] > 3) {
-            int j;
-            j = beads[10] - 3;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[10] > 0) {
-            beads[beads[10] + 10] += 1;
-            beads[10] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 11) {
-        if (beads[11] > 2) {
-            int j;
-            j = beads[11] - 2;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[11] > 0) {
-            beads[beads[11] + 11] += 1;
-            beads[11] -= 1;
-        }
-        getStartingBin(+1);
-    }
-    if (holdNumber == 12) {
-        if (beads[12] > 1) {
-            int j;
-            j = beads[12] - 1;
-            while (j > 0) {
-                beads[j - 1] += 1;
-                j -= 1;
-            }
-        }
-        while (beads[12] > 0) {
-            beads[beads[12] + 12] += 1;
-            beads[12] -= 1;
-        }
-        getStartingBin(+1);
-    }
-}
-
-void getStartingBin(int playerTurn) { //controls
     cout << "What bin would you like to start in?" << endl;
     int holdNumber;
     cin >> holdNumber;
-    playersTurn(playerTurn);
-    if (holdNumber >= 6 && playerTurn == 1) {
+
+    if (holdNumber >= 6 && (playerTurn % 2) != 0) {
         cout << "Invalid input!" << endl << "Please try again." << endl;
-    } else if (holdNumber > 7 && holdNumber == 13 && playerTurn == 2) {
+    } else if (holdNumber < 7 && holdNumber == 13 && playerTurn == 2) {
         cout << "Invalid input!" << endl << "Please try again." << endl;
     } else {
-        dropBeads(holdNumber);
+        dropBeads(holdNumber, playerTurn);
+        ++playerTurn;
+        return playerTurn;
     }
 }
 
 void gameContinue() {
     int playerTurn = 1;
-    while (
-            beads[0] > 0 || beads[1] > 0 || beads[2] > 0 || beads[3] > 0 || beads[4] > 0 || beads[5] > 0 ||
-            beads[7] > 0 || beads[8] > 0 || beads[9] > 0 || beads[10] > 0 || beads[11] > 0 || beads[12] > 0) {
+    while (!gameOverCheck()) {
         getStartingBin(playerTurn);
-        showBoard();
         gameOverCheck();
+        showBoard();
+        cout << "Player: " << playerTurn << "'s turn.";
     }
     showBoard();
     cout << "GAME FINISHED" << endl;
-    cout << "PLAYER ONE SCORE: " << beads[6] << endl;
-    cout << "PLAYER TWO SCORE: " << beads[13] << endl;
-    if (beads[6] > beads[13]) {
+    cout << "PLAYER ONE SCORE: " << beadArray[6] << endl;
+    cout << "PLAYER TWO SCORE: " << beadArray[13] << endl;
+    if (beadArray[6] > beadArray[13]) {
         cout << "PLAYER ONE WINS!!";
-    } else if (beads[13] > beads[6]) {
+    } else if (beadArray[13] > beadArray[6]) {
         cout << "PLAYER TWO WINS!!";
-    } else if (beads[6] == beads[13]) {
+    } else if (beadArray[6] == beadArray[13]) {
         cout << "YOU TIED!" << endl << endl << "...how?";
     }
 }
@@ -411,6 +273,5 @@ int main() {
     startingArray();
     showBoard();
     gameContinue();
-
     return 0;
 }
