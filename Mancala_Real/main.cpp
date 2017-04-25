@@ -192,6 +192,7 @@ void dropBeads(int input, int playerTurn) {
     {
         int skipBin;
         bool loop;
+        int binFinish;
         if (playerTurn % 2 == 0) {
             skipBin = 6;
         } else {
@@ -201,7 +202,7 @@ void dropBeads(int input, int playerTurn) {
             int j;
             j = beadArray[input] - (13 - input);
             if (beadArray[beadArray[j] + j] > 0) {
-                int binFinish=beadArray[j]+j;
+                binFinish=beadArray[j]+j;
             }
             while (j > 0) {
                 beadArray[j - 1] += 1;
@@ -215,7 +216,7 @@ void dropBeads(int input, int playerTurn) {
         }
         while (beadArray[input] > 0) {
             if (beadArray[beadArray[input] + input] > 0 && !loop) {
-
+                binFinish=beadArray[input]+input;
             }
             beadArray[beadArray[input] + input] += 1;
             beadArray[input] -= 1;
@@ -223,6 +224,7 @@ void dropBeads(int input, int playerTurn) {
                 beadArray[skipBin] -= 1;
             }
         }
+        dropBeads(binFinish,playerTurn);
     }
 }
 
