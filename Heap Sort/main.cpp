@@ -18,11 +18,10 @@ void heapify(int i, int arrayCount, int mainArray[]) {
     }
     if (parent != i) {
         swap(mainArray[i], mainArray[parent]);
-
         heapify(i, parent, mainArray);
     }
     //cout << "a" << i << endl;
-
+    i++;
 }
 
 void heapSort(int arrayCount, int mainArray[]) {

@@ -1,24 +1,15 @@
-#include <iostream>
+
+}#include <iostream>
 #include <ctime>
 #include <functional>
 #include <algorithm>
-#include <stdio.h>
 
-#define SIZE_A 100
-#define SIZE_B 1000
-#define SIZE_C 10000
 
 using namespace std;
 
-bool isSorted(int array[], int array_size) {
-    bool is_sorted = true;
-    for (int i = 1; is_sorted && i < array_size; ++i) {
-        if (array[i - 1] > array[i]) {
-            is_sorted = false;
-        }
-    }
-    return is_sorted;
-}
+#define SIZE_A 100;
+#define SIZE_B 1000;
+#define SIZE_C 10000;
 
 void fillArray(int array[], int array_size) {
     for (int i = 0; i < array_size; ++i) {
@@ -66,44 +57,28 @@ int main() {
     fillArray(a, SIZE_A);
     fillArray(b, SIZE_B);
     fillArray(c, SIZE_C);
-    cout << "The following is representative of whether the array is sorted before it is shuffled.\n"
-         << "1 = true\n"
-         << "0 = false\n";
-    cout << isSorted(a, SIZE_A) << endl;
-    cout << isSorted(b, SIZE_B) << endl;
-    cout << isSorted(c, SIZE_C) << endl;
-
-    cout << "The following is the time it takes for the program to sort the sorted lists." << endl;
+    // TO DO:
+    // Check if the arrays are sorted using the function isSorted.
+    // Make sure that the arrays are sorted before passing this point.
+    // Note that you may have insertionSort or selectionSort instead.
     int sorting_sorted_a = selectionSort(a, SIZE_A);
-    cout << sorting_sorted_a << endl;
     int sorting_sorted_b = selectionSort(b, SIZE_B);
-    cout << sorting_sorted_b << endl;
     int sorting_sorted_c = selectionSort(c, SIZE_C);
-    cout << sorting_sorted_c << endl;
-
+    // TO DO:
+    // Check if the arrays are sorted using the function isSorted.
+    // Make sure that the arrays are sorted before passing this point.
+    // Shuffle the array
     shuffle(a, SIZE_A);
     shuffle(b, SIZE_B);
     shuffle(c, SIZE_C);
-    cout << "The following is representative of whether the array is sorted after it is shuffled.\n"
-         << "1 = true\n"
-         << "0 = false\n";
-    cout << isSorted(a, SIZE_A) << endl;
-    cout << isSorted(b, SIZE_B) << endl;
-    cout << isSorted(c, SIZE_C) << endl;
-
-    cout << "The following is the time it takes for the program to sort the shuffled lists" << endl;
+    // TO DO:
+    // Check if the arrays are sorted using the function isSorted.
+    // Make sure that the arrays are NOT sorted before passing this point.
+    // Now, resort your arrays.
     int sorting_unsorted_a = selectionSort(a, SIZE_A);
-    cout << sorting_unsorted_a << endl;
     int sorting_unsorted_b = selectionSort(b, SIZE_B);
-    cout << sorting_unsorted_b << endl;
     int sorting_unsorted_c = selectionSort(c, SIZE_C);
-    cout << sorting_unsorted_c << endl;
-
-    cout << "The following is representative of whether the array is sorted after it is shuffled and sorted.\n"
-         << "1 = true\n"
-         << "0 = false\n";
-    cout << isSorted(a, SIZE_A) << endl;
-    cout << isSorted(b, SIZE_B) << endl;
-    cout << isSorted(c, SIZE_C) << endl;
-    system("PAUSE");
+    // TO DO:
+    // Check if the arrays are sorted using the function isSorted.
+    // Make sure that the arrays are sorted before passing this point.
 }

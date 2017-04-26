@@ -148,7 +148,7 @@ void showBoard() {
     }
 }
 
-int getStartingBin(int playerTurn);
+void getStartingBin(int playerTurn);
 
 //Checks if a player's bins are empty then ends game if so.
 bool gameOverCheck() {
@@ -189,48 +189,47 @@ bool gameOverCheck() {
 }
 
 void dropBeads(int input, int playerTurn) {
-    {
-        int skipBin;
-        bool loop;
-        int binFinish = -1;
-        if (playerTurn % 2 == 0) {
-            skipBin = 6;
-        } else {
-            skipBin = 13;
+    int skipBin = 0;
+    bool loop = false;
+    int binFinish = -1;
+    if (playerTurn % 2 == 0) {
+        skipBin = 6;
+    } else {
+        skipBin = 13;
+    }
+    if (beadArray[input] > (13 - input) - input) {
+        loop = true;
+        int j;
+        j = beadArray[input] - (13 - input);
+        if (beadArray[beadArray[j] + j] > 0) {
+            binFinish = beadArray[j] + j;
         }
-        if (beadArray[input] > (13 - input) - input) {
-            int j;
-            j = beadArray[input] - (13 - input);
-            if (beadArray[beadArray[j] + j] > 0) {
-                binFinish = beadArray[j] + j;
-            }
-            while (j > 0) {
+        while (j > 0) {
+            beadArray[j - 1] += 1;
+            j -= 1;
+            if (beadArray[j] == skipBin) {
                 beadArray[j - 1] += 1;
-                j -= 1;
-                if (beadArray[j] + j == skipBin) {
-                    beadArray[skipBin] -= 1;
-                }
-            }
-
-            loop = true;
-        }
-        while (beadArray[input] > 0) {
-            if (beadArray[beadArray[input] + input] > 0 && !loop) {
-                binFinish = beadArray[input] + input;
-            }
-            beadArray[beadArray[input] + input] += 1;
-            beadArray[input] -= 1;
-            if (beadArray[input] + input == skipBin) {
                 beadArray[skipBin] -= 1;
             }
         }
-        if (binFinish != -1) {
-            dropBeads(binFinish, playerTurn);
+    }
+    if (beadArray[beadArray[input] + input] > 0 && !loop) {
+        binFinish = beadArray[input] + input;
+    }
+    while (beadArray[input] > 0) {
+        beadArray[beadArray[input] + input] += 1;
+        beadArray[input] -= 1;
+        if (beadArray[input] + input == skipBin) {
+            beadArray[skipBin] -= 1;
         }
+    }
+    if (binFinish >= 0) {
+        dropBeads(binFinish, playerTurn);
     }
 }
 
-int getStartingBin(int playerTurn) {
+
+void getStartingBin(int playerTurn) {
     if (playerTurn % 2 == 0) {
         cout << "It is PLAYER TWO'S turn." << endl;
     } else {
@@ -240,15 +239,16 @@ int getStartingBin(int playerTurn) {
     cout << "What bin would you like to start in?" << endl;
     int holdNumber;
     cin >> holdNumber;
-
-    if (holdNumber >= 6 && (playerTurn % 2) != 0) {
-        cout << "Invalid input!" << endl << "Please try again." << endl;
-    } else if (holdNumber < 7 && holdNumber == 13 && playerTurn == 2) {
-        cout << "Invalid input!" << endl << "Please try again." << endl;
-    } else {
-        dropBeads(holdNumber, playerTurn);
-        ++playerTurn;
-        return playerTurn;
+    bool tryAgain= true;
+    while (tryAgain) {
+        if (holdNumber >= 6 && (playerTurn % 2) != 0) {
+            cout << "Invalid input!" << endl << "Please try again." << endl;
+        } else if (holdNumber < 7 && holdNumber == 13 && playerTurn == 2) {
+            cout << "Invalid input!" << endl << "Please try again." << endl;
+        } else {
+            dropBeads(holdNumber, playerTurn);
+            tryAgain = false;
+        }
     }
 }
 
@@ -258,7 +258,7 @@ void gameContinue() {
         getStartingBin(playerTurn);
         gameOverCheck();
         showBoard();
-        cout << "Player: " << playerTurn << "'s turn.";
+        ++playerTurn;
     }
     showBoard();
     cout << "GAME FINISHED" << endl;
