@@ -188,65 +188,67 @@ bool gameOverCheck() {
     return gameOver;
 }
 
-void dropBeads(int input, int playerTurn) {
-    int skipBin = 0;
+void dropBeads(int input, int playerTurn, int skipBin) {
     bool loop = false;
     int binFinish = -1;
-    if (playerTurn % 2 == 0) {
-        skipBin = 6;
-    } else {
-        skipBin = 13;
-    }
-    if (beadArray[input] > (13 - input) - input) {
+
+    if (beadArray[input] > ((13 - beadArray[input]) + input)) {
         loop = true;
-        int j;
+        int j = 0;
         j = beadArray[input] - (13 - input);
         if (beadArray[beadArray[j] + j] > 0) {
             binFinish = beadArray[j] + j;
         }
         while (j > 0) {
-            beadArray[j - 1] += 1;
-            j -= 1;
             if (beadArray[j] == skipBin) {
                 beadArray[j - 1] += 1;
                 beadArray[skipBin] -= 1;
             }
+            beadArray[j - 1] += 1;
+            j -= 1;
+
         }
     }
     if (beadArray[beadArray[input] + input] > 0 && !loop) {
         binFinish = beadArray[input] + input;
     }
     while (beadArray[input] > 0) {
-        beadArray[beadArray[input] + input] += 1;
-        beadArray[input] -= 1;
         if (beadArray[input] + input == skipBin) {
             beadArray[skipBin] -= 1;
         }
+        beadArray[beadArray[input] + input] += 1;
+        beadArray[input] -= 1;
+
     }
     if (binFinish >= 0) {
-        dropBeads(binFinish, playerTurn);
+        dropBeads(binFinish, playerTurn, skipBin);
     }
 }
 
 
 void getStartingBin(int playerTurn) {
-    if (playerTurn % 2 == 0) {
-        cout << "It is PLAYER TWO'S turn." << endl;
-    } else {
-        cout << "It is PLAYER ONE'S turn." << endl;
-    }
+    int skipBin = 0;
+    bool tryAgain = true;
 
-    cout << "What bin would you like to start in?" << endl;
-    int holdNumber;
-    cin >> holdNumber;
-    bool tryAgain= true;
+    if (playerTurn % 2 == 0) {
+        cout << "It is PLAYER TWO'S turn." << endl
+             << endl;
+        skipBin = 6;
+    } else {
+        cout << "It is PLAYER ONE'S turn." << endl
+             << endl;
+        skipBin = 13;
+    }
     while (tryAgain) {
+        cout << "What bin would you like to start in?" << endl;
+        int holdNumber;
+        cin >> holdNumber;
         if (holdNumber >= 6 && (playerTurn % 2) != 0) {
             cout << "Invalid input!" << endl << "Please try again." << endl;
         } else if (holdNumber < 7 && holdNumber == 13 && playerTurn == 2) {
             cout << "Invalid input!" << endl << "Please try again." << endl;
         } else {
-            dropBeads(holdNumber, playerTurn);
+            dropBeads(holdNumber, playerTurn, skipBin);
             tryAgain = false;
         }
     }
@@ -276,6 +278,8 @@ void gameContinue() {
 int main() {
     startingArray();
     showBoard();
+    cout << &beadArray[6] << endl;
+    cout << &beadArray[13] << endl;
     gameContinue();
     return 0;
 }
