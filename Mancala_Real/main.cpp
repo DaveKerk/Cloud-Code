@@ -36,15 +36,6 @@ void makeSolidLine(int numOfStars) {
     for (int i = 0; i <= numOfStars; i++)cout << '*';
 }
 
-//  Function Name:
-//  Function:
-void middle() {
-    cout << "*  13  ";
-    makeSolidLine(42);
-    cout << "   6   *";
-}
-
-
 //  Function Name: makeDottedLine
 //  Function: Makes the dotted line without number labels.
 void makeDottedLine() {
