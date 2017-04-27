@@ -1,0 +1,130 @@
+#include <iostream>
+#include <ctime>
+#include <functional>
+#include <algorithm>
+#include <stdio.h>
+
+#define SIZE_A 100
+#define SIZE_B 1000
+#define SIZE_C 10000
+
+using namespace std;
+
+void cheapSort(int n, int arr[]);
+
+void heapify(int arr[], int n, int i);
+
+bool isSorted(int array[], int array_size) {
+    bool is_sorted = true;
+    for (int i = 1; is_sorted && i < array_size; ++i) {
+        if (array[i - 1] > array[i]) {
+            is_sorted = false;
+        }
+    }
+    return is_sorted;
+}
+
+void fillArray(int array[], int array_size) {
+    for (int i = 0; i < array_size; ++i) {
+        array[i] = i;
+    }
+}
+
+void shuffle(int array[], int array_size) {
+    random_shuffle(array, array + array_size);
+}
+
+int heapSort(int array[], int array_size) {
+    clock_t start = clock(); // Get a current reading of time
+
+    //pos_min is short for position of min
+    int pos_min, temp;
+
+    cheapSort(array_size, array);
+
+    clock_t end = clock(); // Get a current reading of time
+    int time = end - start;
+    return time; // Return the difference in time
+}
+
+// To heapify a subtree rooted with node i which is
+// an index in arr[]. n is size of heap
+
+void heapify(int i, int arrayCount, int mainArray[]) {
+    int parent = i;
+    int leftChild = (2 * i) + 1;
+    int rightChild = (2 * i) + 2;
+
+    if (leftChild < arrayCount && mainArray[leftChild] > mainArray[parent]) {
+        parent = leftChild;
+    }
+    if (rightChild < arrayCount && mainArray[rightChild] > mainArray[parent]) {
+        parent = rightChild;
+    }
+    if (parent != i) {
+        swap(mainArray[parent],mainArray[i]);
+        heapify(parent, arrayCount, mainArray);
+    }
+}
+
+// main function to do heap sort
+void cheapSort(int arrayCount, int mainArray[]) {
+    for (int i = arrayCount/2-1; i >= 0; i--) {
+        heapify(i, arrayCount, mainArray);
+    }
+    for (int i = arrayCount-1 ; i >= 0; i--) {
+        swap(mainArray[0], mainArray[i]);
+
+        heapify(i, arrayCount, mainArray);
+    }
+}
+
+
+int main() {
+    int a[SIZE_A];
+    int b[SIZE_B];
+    int c[SIZE_C];
+    fillArray(a, SIZE_A);
+    fillArray(b, SIZE_B);
+    fillArray(c, SIZE_C);
+    cout << "The following is representative of whether the array is sorted before it is shuffled.\n"
+         << "1 = true\n"
+         << "0 = false\n";
+    cout << isSorted(a, SIZE_A) << endl;
+    cout << isSorted(b, SIZE_B) << endl;
+    cout << isSorted(c, SIZE_C) << endl;
+
+    cout << "The following is the time it takes for the program to sort the sorted lists." << endl;
+    int sorting_sorted_a = heapSort(a, SIZE_A);
+    cout << sorting_sorted_a << endl;
+    int sorting_sorted_b = heapSort(b, SIZE_B);
+    cout << sorting_sorted_b << endl;
+    int sorting_sorted_c = heapSort(c, SIZE_C);
+    cout << sorting_sorted_c << endl;
+
+    shuffle(a, SIZE_A);
+    shuffle(b, SIZE_B);
+    shuffle(c, SIZE_C);
+    cout << "The following is representative of whether the array is sorted after it is shuffled.\n"
+         << "1 = true\n"
+         << "0 = false\n";
+    cout << isSorted(a, SIZE_A) << endl;
+    cout << isSorted(b, SIZE_B) << endl;
+    cout << isSorted(c, SIZE_C) << endl;
+
+    cout << "The following is the time it takes for the program to sort the shuffled lists" << endl;
+    int sorting_unsorted_a = heapSort(a, SIZE_A);
+    cout << sorting_unsorted_a << endl;
+    int sorting_unsorted_b = heapSort(b, SIZE_B);
+    cout << sorting_unsorted_b << endl;
+    int sorting_unsorted_c = heapSort(c, SIZE_C);
+    cout << sorting_unsorted_c << endl;
+
+    cout << "The following is representative of whether the array is sorted after it is shuffled and sorted.\n"
+         << "1 = true\n"
+         << "0 = false\n";
+    cout << isSorted(a, SIZE_A) << endl;
+    cout << isSorted(b, SIZE_B) << endl;
+    cout << isSorted(c, SIZE_C) << endl;
+    system("PAUSE");
+}

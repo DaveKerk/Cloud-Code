@@ -20,7 +20,6 @@ void heapify(int i, int arrayCount, int mainArray[]) {
         swap(mainArray[parent],mainArray[i]);
         heapify(parent, arrayCount, mainArray);
     }
-    //cout << "a" << i << endl;
 }
 
 void heapSort(int arrayCount, int mainArray[]) {

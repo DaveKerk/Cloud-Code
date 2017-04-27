@@ -14,7 +14,6 @@ void cheapSort(int arr[], int n);
 
 void heapify(int arr[], int n, int i);
 
-
 bool isSorted(int array[], int array_size) {
     bool is_sorted = true;
     for (int i = 1; is_sorted && i < array_size; ++i) {
@@ -37,9 +36,6 @@ void shuffle(int array[], int array_size) {
 
 int heapSort(int array[], int array_size) {
     clock_t start = clock(); // Get a current reading of time
-
-    //pos_min is short for position of min
-    int pos_min, temp;
 
     cheapSort(array, array_size);
 
