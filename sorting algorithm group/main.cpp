@@ -12,7 +12,7 @@
 using namespace std;
 
 /* return true if the array is sorted; otherwise, false
- * checks to see if array is sorted */
+   checks to see if array is sorted */
 bool isSorted(int array[], int array_size) {
     bool is_sorted = true;
     for (int i = 1; is_sorted && i < array_size; ++i) {
@@ -141,11 +141,28 @@ int main() {
     int bubbleSumTimeUnsorted_C = 0;
     int insertionSumTimeUnsorted_C = 0;
 
+    cout << "Greetings!! \n"
+         << "The following program is used to find the average time it takes\n"
+         << "to sort a list of size: 100, 1,000, and 10,000 based on a user\n"
+         << "input number of trials. \n"
+         << "Let's begin! \n"
+         << endl;
+
+    // Asks the user how many trials they would like to run to find an average.
+    int trialSize = 0;
+    cout << "How many trials would you like to run?" << endl;
+    cin >> trialSize;
+
+    cout << endl;
+
     // Formats the top outputted line to prepare for easy reading.
+    cout << "This chart is the average amount of time it takes each sorting algorithm to sort a list in\n"
+         << "each given scenario. The average is calculated by the sum time divided by " << trialSize << "." << endl
+         << endl;
     cout << setw(12) << "Sorted:" << setw(8) << SIZE_A << setw(8) << SIZE_B << setw(8) << SIZE_C
          << setw(12) << "Unsorted:" << setw(8) << SIZE_A << setw(8) << SIZE_B << setw(8) << SIZE_C << endl;
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < trialSize; i++) {
         fillArray(a, SIZE_A);       //
         fillArray(b, SIZE_B);       // Fills an array with the appropriate sizes.
         fillArray(c, SIZE_C);       //
@@ -178,12 +195,12 @@ int main() {
         if (!isSorted(c, SIZE_C)) return -2;    //
     }
 
-    int averageSelectionTimeSorted_A = selectionSumTimeSorted_A / 100;          //
-    int averageSelectionTimeSorted_B = selectionSumTimeSorted_B / 100;          // Takes the sum total time for
-    int averageSelectionTimeSorted_C = selectionSumTimeSorted_C / 100;          // each scenario and averages
-    int averageSelectionTimeUnsorted_A = selectionSumTimeUnsorted_A / 100;      // it given the amount of
-    int averageSelectionTimeUnsorted_B = selectionSumTimeUnsorted_B / 100;      // trials.
-    int averageSelectionTimeUnsorted_C = selectionSumTimeUnsorted_C / 100;      //
+    int averageSelectionTimeSorted_A = selectionSumTimeSorted_A / trialSize;          //
+    int averageSelectionTimeSorted_B = selectionSumTimeSorted_B / trialSize;          // Takes the sum total time for
+    int averageSelectionTimeSorted_C = selectionSumTimeSorted_C / trialSize;          // each scenario and averages
+    int averageSelectionTimeUnsorted_A = selectionSumTimeUnsorted_A / trialSize;      // it given the amount of
+    int averageSelectionTimeUnsorted_B = selectionSumTimeUnsorted_B / trialSize;      // trials.
+    int averageSelectionTimeUnsorted_C = selectionSumTimeUnsorted_C / trialSize;      //
 
     // Outputs the averages for each scenario formatted appropriately to match the first line.
     cout << setw(12) << "Selection:" << setw(8) << averageSelectionTimeSorted_A << setw(8)
@@ -191,7 +208,7 @@ int main() {
          << setw(20) << averageSelectionTimeUnsorted_A << setw(8) << averageSelectionTimeUnsorted_B << setw(8)
          << averageSelectionTimeUnsorted_C << endl;
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < trialSize; i++) {
         fillArray(a, SIZE_A);       //
         fillArray(b, SIZE_B);       // Fills an array with the appropriate sizes.
         fillArray(c, SIZE_C);       //
@@ -223,12 +240,12 @@ int main() {
         if (!isSorted(c, SIZE_C)) return -2;    //
     }
 
-    int averagebubbleTimeSorted_A = bubbleSumTimeSorted_A / 100;          //
-    int averagebubbleTimeSorted_B = bubbleSumTimeSorted_B / 100;          // Takes the sum total time for
-    int averagebubbleTimeSorted_C = bubbleSumTimeSorted_C / 100;          // each scenario and averages
-    int averagebubbleTimeUnsorted_A = bubbleSumTimeUnsorted_A / 100;      // it given the amount of
-    int averagebubbleTimeUnsorted_B = bubbleSumTimeUnsorted_B / 100;      // trials.
-    int averagebubbleTimeUnsorted_C = bubbleSumTimeUnsorted_C / 100;      //
+    int averagebubbleTimeSorted_A = bubbleSumTimeSorted_A / trialSize;          //
+    int averagebubbleTimeSorted_B = bubbleSumTimeSorted_B / trialSize;          // Takes the sum total time for
+    int averagebubbleTimeSorted_C = bubbleSumTimeSorted_C / trialSize;          // each scenario and averages
+    int averagebubbleTimeUnsorted_A = bubbleSumTimeUnsorted_A / trialSize;      // it given the amount of
+    int averagebubbleTimeUnsorted_B = bubbleSumTimeUnsorted_B / trialSize;      // trials.
+    int averagebubbleTimeUnsorted_C = bubbleSumTimeUnsorted_C / trialSize;      //
 
     // Outputs the averages for each scenario formatted appropriately to match the first line.
     cout << setw(12) << "Bubble:" << setw(8) << averagebubbleTimeSorted_A << setw(8)
@@ -236,7 +253,7 @@ int main() {
          << setw(20) << averagebubbleTimeUnsorted_A << setw(8) << averagebubbleTimeUnsorted_B << setw(8)
          << averagebubbleTimeUnsorted_C << endl;
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < trialSize; i++) {
         fillArray(a, SIZE_A);       //
         fillArray(b, SIZE_B);       // Fills an array with the appropriate sizes.
         fillArray(c, SIZE_C);       //
@@ -268,12 +285,12 @@ int main() {
         if (!isSorted(c, SIZE_C)) return -2;    //
     }
 
-    int averageinsertionTimeSorted_A = insertionSumTimeSorted_A / 100;          //
-    int averageinsertionTimeSorted_B = insertionSumTimeSorted_B / 100;          // Takes the sum total time for
-    int averageinsertionTimeSorted_C = insertionSumTimeSorted_C / 100;          // each scenario and averages
-    int averageinsertionTimeUnsorted_A = insertionSumTimeUnsorted_A / 100;      // it given the amount of
-    int averageinsertionTimeUnsorted_B = insertionSumTimeUnsorted_B / 100;      // trials.
-    int averageinsertionTimeUnsorted_C = insertionSumTimeUnsorted_C / 100;      //
+    int averageinsertionTimeSorted_A = insertionSumTimeSorted_A / trialSize;          //
+    int averageinsertionTimeSorted_B = insertionSumTimeSorted_B / trialSize;          // Takes the sum total time for
+    int averageinsertionTimeSorted_C = insertionSumTimeSorted_C / trialSize;          // each scenario and averages
+    int averageinsertionTimeUnsorted_A = insertionSumTimeUnsorted_A / trialSize;      // it given the amount of
+    int averageinsertionTimeUnsorted_B = insertionSumTimeUnsorted_B / trialSize;      // trials.
+    int averageinsertionTimeUnsorted_C = insertionSumTimeUnsorted_C / trialSize;      //
 
     // Outputs the averages for each scenario formatted appropriately to match the first line.
     cout << setw(12) << "Insertion:" << setw(8) << averageinsertionTimeSorted_A << setw(8)
@@ -281,7 +298,7 @@ int main() {
          << setw(20) << averageinsertionTimeUnsorted_A << setw(8) << averageinsertionTimeUnsorted_B << setw(8)
          << averageinsertionTimeUnsorted_C << endl;
 
-    cout << "Thanks for using the program." << endl << "BYE!!" << endl;
+    cout << endl << "Thanks for using the program." << endl << "BYE!!" << endl << endl;
     system("PAUSE");
     return 0;
 }
