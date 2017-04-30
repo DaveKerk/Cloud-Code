@@ -1,0 +1,3 @@
+C:/Users/DaveKerk/Desktop/Cloud-Code/sorting algorithm group/cmake-build-debug/CMakeFiles/sorting_algorithm_group.dir
+C:/Users/DaveKerk/Desktop/Cloud-Code/sorting algorithm group/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/DaveKerk/Desktop/Cloud-Code/sorting algorithm group/cmake-build-debug/CMakeFiles/rebuild_cache.dir
