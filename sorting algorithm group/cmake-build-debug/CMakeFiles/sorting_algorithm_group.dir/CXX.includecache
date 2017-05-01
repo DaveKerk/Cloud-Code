@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/DaveKerk/Desktop/Cloud-Code/sorting algorithm group/main.cpp
+iostream
+-
+ctime
+-
+functional
+-
+algorithm
+-
+stdio.h
+-
+iomanip
+-
+
