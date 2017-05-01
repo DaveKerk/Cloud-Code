@@ -30,9 +30,9 @@ void shuffle(int array[], int array_size) {
     random_shuffle(array, array + array_size);
 }
 
-int selectionSort(int array[], int array_size) {
+int selectionSort(int array[], int array_size, int &count) {
     clock_t start = clock(); // Get a current reading of time
-
+    count = 0;
     //pos_min is short for position of min
     int pos_min, temp;
 
@@ -48,6 +48,7 @@ int selectionSort(int array[], int array_size) {
 
         //if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
         if (pos_min != i) {
+            count++;
             temp = array[i];
             array[i] = array[pos_min];
             array[pos_min] = temp;
@@ -60,6 +61,9 @@ int selectionSort(int array[], int array_size) {
 }
 
 int main() {
+
+    int count = 0;
+
     int a[SIZE_A];
     int b[SIZE_B];
     int c[SIZE_C];
@@ -74,12 +78,15 @@ int main() {
     cout << isSorted(c, SIZE_C) << endl;
 
     cout << "The following is the time it takes for the program to sort the sorted lists." << endl;
-    int sorting_sorted_a = selectionSort(a, SIZE_A);
+    int sorting_sorted_a = selectionSort(a, SIZE_A, count);
     cout << sorting_sorted_a << endl;
-    int sorting_sorted_b = selectionSort(b, SIZE_B);
+    cout << count << endl;
+    int sorting_sorted_b = selectionSort(b, SIZE_B, count);
     cout << sorting_sorted_b << endl;
-    int sorting_sorted_c = selectionSort(c, SIZE_C);
+    cout << count << endl;
+    int sorting_sorted_c = selectionSort(c, SIZE_C, count);
     cout << sorting_sorted_c << endl;
+    cout << count << endl;
 
     shuffle(a, SIZE_A);
     shuffle(b, SIZE_B);
@@ -92,12 +99,15 @@ int main() {
     cout << isSorted(c, SIZE_C) << endl;
 
     cout << "The following is the time it takes for the program to sort the shuffled lists" << endl;
-    int sorting_unsorted_a = selectionSort(a, SIZE_A);
+    int sorting_unsorted_a = selectionSort(a, SIZE_A, count);
     cout << sorting_unsorted_a << endl;
-    int sorting_unsorted_b = selectionSort(b, SIZE_B);
+    cout << count << endl;
+    int sorting_unsorted_b = selectionSort(b, SIZE_B, count);
     cout << sorting_unsorted_b << endl;
-    int sorting_unsorted_c = selectionSort(c, SIZE_C);
+    cout << count << endl;
+    int sorting_unsorted_c = selectionSort(c, SIZE_C, count);
     cout << sorting_unsorted_c << endl;
+    cout << count << endl;
 
     cout << "The following is representative of whether the array is sorted after it is shuffled and sorted.\n"
          << "1 = true\n"

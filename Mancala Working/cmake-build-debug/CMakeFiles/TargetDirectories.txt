@@ -1,0 +1,3 @@
+C:/Users/david/Desktop/Cloud-Code/Mancala Working/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/david/Desktop/Cloud-Code/Mancala Working/cmake-build-debug/CMakeFiles/Mancala_Working.dir
+C:/Users/david/Desktop/Cloud-Code/Mancala Working/cmake-build-debug/CMakeFiles/rebuild_cache.dir
