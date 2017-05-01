@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/david/Desktop/Cloud-Code/sortin/main.cpp
+iostream
+-
+ctime
+-
+functional
+-
+algorithm
+-
+stdio.h
+-
+iomanip
+-
+
