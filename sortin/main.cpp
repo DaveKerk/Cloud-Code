@@ -164,8 +164,8 @@ int main() {
     int insertionSumOperationsSorted_C = 0;
 
     int selectionSumOperationsUnsorted_C = 0;
-    int bubbleSumOperationsUnsorted_C = 0;
-    int insertionSumOperationsUnsorted_C = 0;
+    double bubbleSumOperationsUnsorted_C = 0;
+    double insertionSumOperationsUnsorted_C = 0;
 
     cout << "Greetings!! \n"
          << "The following program is used to find the average time it takes\n"
@@ -310,6 +310,7 @@ int main() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     for (int i = 0; i < trialSize; i++) {
         operations = 0;
         fillArray(a, SIZE_A);       //
