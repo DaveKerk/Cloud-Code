@@ -389,12 +389,12 @@ int main() {
     cout << setw(12) << "Insertion:" << setw(8) << averageinsertionTimeSorted_A << setw(8)
          << averageinsertionTimeSorted_B << setw(8) << averageinsertionTimeSorted_C
          << setw(20) << averageinsertionTimeUnsorted_A << setw(8) << averageinsertionTimeUnsorted_B << setw(10)
-         << averageinsertionTimeUnsorted_C << endl;
+         << averageinsertionTimeUnsorted_C << endl << endl;
 
 
     // Formats the top outputted line to prepare for easy reading.
     cout << "This chart is the average amount of operations it takes each sorting algorithm to sort a list in\n"
-         << "each given scenario. The average is calculated by the sum time divided by " << trialSize << "." << endl
+         << "each given scenario. The average is calculated by the sum operations divided by " << trialSize << "." << endl
          << endl;
     cout << setw(12) << "Sorted:" << setw(8) << SIZE_A << setw(8) << SIZE_B << setw(8) << SIZE_C
          << setw(12) << "Unsorted:" << setw(8) << SIZE_A << setw(8) << SIZE_B << setw(10) << SIZE_C << endl;
