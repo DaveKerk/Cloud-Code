@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
+#include <iomanip>
 
 using namespace std;
 
@@ -25,8 +26,8 @@ bool openFileForRead(const string &file_name, ifstream &input_file_stream);
 //                     total memory of the array has already been allocated by
 //                     the calling process.
 // recordSize        = The number of elements per record (input).
-bool readStudentRecord(ifstream &input_file_stream, int &studentID,
-                       string &studentName, float studentRecord[],
+bool readStudentRecord(ifstream &input_file_stream, /*int &studentID,
+                       string &studentName,*/ float studentRecord[],
                        const int recordSize);
 
 // Return the average of the score whose values are stored in an array.
@@ -74,26 +75,104 @@ float assignmentAverage(const int studentID,
                         const float assignment4scores[],
                         const float assignment5scores[]);
 
+void valueAssign(float studentRecord[],
+                 float exam1scores[],
+                 float exam2scores[],
+                 float exam3scores[],
+                 float quiz1scores[],
+                 float quiz2scores[],
+                 float quiz3scores[],
+                 float assignment1scores[],
+                 float assignment2scores[],
+                 float assignment3scores[],
+                 float assignment4scores[],
+                 float assignment5scores[],
+                 int kStudentCount,
+                 int kRecordLength,
+                 int studentID) {
+    studentRecord[0] = exam1scores[studentID];
+    studentRecord[1] = exam2scores[studentID];
+    studentRecord[2] = exam3scores[studentID];
+    studentRecord[3] = quiz1scores[studentID];
+    studentRecord[4] = quiz2scores[studentID];
+    studentRecord[5] = quiz3scores[studentID];
+    studentRecord[6] = assignment1scores[studentID];
+    studentRecord[7] = assignment2scores[studentID];
+    studentRecord[8] = assignment3scores[studentID];
+    studentRecord[9] = assignment4scores[studentID];
+    studentRecord[10] = assignment5scores[studentID];
+}
+
+void fileOutput(const string &fileOut, int kStudentCount,
+                float exam1scores[],
+                float exam2scores[],
+                float exam3scores[],
+                float quiz1scores[],
+                float quiz2scores[],
+                float quiz3scores[],
+                float assignment1scores[],
+                float assignment2scores[],
+                float assignment3scores[],
+                float assignment4scores[],
+                float assignment5scores[]) {
+    ofstream fout(fileOut, ios::out);
+    fout << " #"
+         << setw(6) << "Name"
+         << setw(8) << "E 1"
+         << setw(8) << "E 2"
+         << setw(8) << "E 3"
+         << setw(8) << "Q 1"
+         << setw(8) << "Q 2"
+         << setw(8) << "Q 3"
+         << setw(8) << "A 1"
+         << setw(8) << "A 2"
+         << setw(8) << "A 3"
+         << setw(8) << "A 4"
+         << setw(8) << "A 5"
+         << setw(12) << "E Avg"
+         << setw(8) << "Q Avg"
+         << setw(8) << "A Avg"
+         << setw(8) << "T Avg"
+         << setw(4) << "G" <<
+         endl;
+    for (int i = 0; i < 1; i++) {
+        fout << setw(18) << exam1scores[i]
+             << setw(8) << exam2scores[i]
+             << setw(8) << exam3scores[i]
+             << setw(8) << quiz1scores[i]
+             << setw(8) << quiz2scores[i]
+             << setw(8) << quiz3scores[i]
+             << setw(8) << assignment1scores[i]
+             << setw(8) << assignment2scores[i]
+             << setw(8) << assignment3scores[i]
+             << setw(8) << assignment4scores[i]
+             << setw(8) << assignment5scores[i];
+    }
+}
+
 int main() {
     const int kStudentCount = 20;
     const int kRecordLength = 11;
     string studentName[kStudentCount];
-/*	float  exam1scores[kStudentCount];
-	float  exam2scores[kStudentCount];
-	float  exam3scores[kStudentCount];
-	float  quiz1scores[kStudentCount];
-	float  quiz2scores[kStudentCount];*/
-    //float  quiz3scores[kStudentCount];
-    //float  assignment1scores[kStudentCount];
-    //float  assignment2scores[kStudentCount];
-    //float  assignment3scores[kStudentCount];
-    //float  assignment4scores[kStudentCount];
-    //float  assignment5scores[kStudentCount];
+    float exam1scores[kStudentCount];
+    float exam2scores[kStudentCount];
+    float exam3scores[kStudentCount];
+    float quiz1scores[kStudentCount];
+    float quiz2scores[kStudentCount];
+    float quiz3scores[kStudentCount];
+    float assignment1scores[kStudentCount];
+    float assignment2scores[kStudentCount];
+    float assignment3scores[kStudentCount];
+    float assignment4scores[kStudentCount];
+    float assignment5scores[kStudentCount];
     float studentRecord[kRecordLength];
-    const string fileName = "C:\\Users\\david\\Desktop\\ScoresE3.txt";
-    ifstream fin;
-    ofstream fout;
 
+
+    const string fileName = "C:\\Users\\david\\Desktop\\ScoresE3.txt";
+    const string fileOut = "C:\\Users\\david\\Desktop\\e3_out.txt";
+    system("PAUSE");
+    ifstream fin;
+/*
     if (openFileForRead(fileName, fin)) {
         int studentID;
         for (int i = 0; i < kStudentCount; ++i) {
@@ -108,6 +187,37 @@ int main() {
             cout << endl;
         }
     }
+*/
+    for (int i = 0; i < kStudentCount; i++) {
+        readStudentRecord(fin, studentRecord, kRecordLength);
+        valueAssign(studentRecord,
+                    exam1scores,
+                    exam2scores,
+                    exam3scores,
+                    quiz1scores,
+                    quiz2scores,
+                    quiz3scores,
+                    assignment1scores,
+                    assignment2scores,
+                    assignment3scores,
+                    assignment4scores,
+                    assignment5scores,
+                    kStudentCount,
+                    kRecordLength,
+                    i);
+    }
+    fileOutput(fileOut, kStudentCount, exam1scores,
+               exam2scores,
+               exam3scores,
+               quiz1scores,
+               quiz2scores,
+               quiz3scores,
+               assignment1scores,
+               assignment2scores,
+               assignment3scores,
+               assignment4scores,
+               assignment5scores);
+
 
     system("PAUSE");
     return 0;
@@ -118,14 +228,14 @@ bool openFileForRead(const string &file_name, ifstream &input_file_stream) {
     return input_file_stream.is_open();
 }
 
-bool readStudentRecord(ifstream &fin, int &studentID,
-                       string &studentName, float studentRecord[],
-                       const int recordSize) {
+bool readStudentRecord(ifstream &fin, float studentRecord[], const int recordSize) {
+    int studentID;
     fin >> studentID;
+    char studentName;
     fin >> studentName;
     for (int i = 0; i < recordSize; ++i) {
         fin >> studentRecord[i];
     }
-
     return true;
 }
+
