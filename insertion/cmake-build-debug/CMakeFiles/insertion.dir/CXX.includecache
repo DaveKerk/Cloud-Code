@@ -6,13 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/david/Desktop/Cloud-Code/sortin/main.cpp
-iostream
--
+C:/Users/david/Desktop/Cloud-Code/insertion/main.cpp
 ctime
+-
+functional
 -
 algorithm
 -
-iomanip
+iostream
+-
+stdio.h
 -
 
