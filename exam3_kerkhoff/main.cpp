@@ -90,20 +90,20 @@ void valueAssign(float studentRecord[],
                  int kStudentCount,
                  int kRecordLength,
                  int studentID) {
-    studentRecord[0] = exam1scores[studentID];
-    studentRecord[1] = exam2scores[studentID];
-    studentRecord[2] = exam3scores[studentID];
-    studentRecord[3] = quiz1scores[studentID];
-    studentRecord[4] = quiz2scores[studentID];
-    studentRecord[5] = quiz3scores[studentID];
-    studentRecord[6] = assignment1scores[studentID];
-    studentRecord[7] = assignment2scores[studentID];
-    studentRecord[8] = assignment3scores[studentID];
-    studentRecord[9] = assignment4scores[studentID];
-    studentRecord[10] = assignment5scores[studentID];
+    studentRecord[0] = exam1scores[0];
+    studentRecord[1] = exam2scores[0];
+    studentRecord[2] = exam3scores[0];
+    studentRecord[3] = quiz1scores[0];
+    studentRecord[4] = quiz2scores[0];
+    studentRecord[5] = quiz3scores[0];
+    studentRecord[6] = assignment1scores[0];
+    studentRecord[7] = assignment2scores[0];
+    studentRecord[8] = assignment3scores[0];
+    studentRecord[9] = assignment4scores[0];
+    studentRecord[10] = assignment5scores[0];
 }
 
-void fileOutput(const string &fileOut, int kStudentCount,
+void fileOutput(const string fileOut, int kStudentCount,
                 float exam1scores[],
                 float exam2scores[],
                 float exam3scores[],
@@ -115,7 +115,7 @@ void fileOutput(const string &fileOut, int kStudentCount,
                 float assignment3scores[],
                 float assignment4scores[],
                 float assignment5scores[]) {
-    ofstream fout(fileOut, ios::out);
+    ofstream fout(fileOut);
     fout << " #"
          << setw(6) << "Name"
          << setw(8) << "E 1"
@@ -136,17 +136,17 @@ void fileOutput(const string &fileOut, int kStudentCount,
          << setw(4) << "G" <<
          endl;
     for (int i = 0; i < 1; i++) {
-        fout << setw(18) << exam1scores[i]
-             << setw(8) << exam2scores[i]
-             << setw(8) << exam3scores[i]
-             << setw(8) << quiz1scores[i]
-             << setw(8) << quiz2scores[i]
-             << setw(8) << quiz3scores[i]
-             << setw(8) << assignment1scores[i]
-             << setw(8) << assignment2scores[i]
-             << setw(8) << assignment3scores[i]
-             << setw(8) << assignment4scores[i]
-             << setw(8) << assignment5scores[i];
+        fout << setw(18) << exam1scores[0]
+             << setw(8) << exam2scores[0]
+             << setw(8) << exam3scores[0]
+             << setw(8) << quiz1scores[0]
+             << setw(8) << quiz2scores[0]
+             << setw(8) << quiz3scores[0]
+             << setw(8) << assignment1scores[0]
+             << setw(8) << assignment2scores[0]
+             << setw(8) << assignment3scores[0]
+             << setw(8) << assignment4scores[0]
+             << setw(8) << assignment5scores[0];
     }
 }
 
@@ -172,14 +172,22 @@ int main() {
     const string fileOut = "C:\\Users\\david\\Desktop\\e3_out.txt";
     system("PAUSE");
     ifstream fin;
-/*
+    float things;
+    float things2;
+    float things3;
+    fin >> things;
+    fin >> things2;
+    fin >> things3;
+    ofstream fout(fileOut);
+    fout << "things" << endl;
+    fout << things << endl << things2 << endl << things3;
     if (openFileForRead(fileName, fin)) {
         int studentID;
         for (int i = 0; i < kStudentCount; ++i) {
-            readStudentRecord(fin, studentID,
+            readStudentRecord(fin,
                               studentName[i],
-                              studentRecord,
-                              kRecordLength);
+                              studentRecord
+            );
             cout << studentID << " " << studentName[i];
             for (int j = 0; j < kRecordLength; j++) {
                 cout << " " << studentRecord[j];
@@ -187,7 +195,7 @@ int main() {
             cout << endl;
         }
     }
-*/
+
     for (int i = 0; i < kStudentCount; i++) {
         readStudentRecord(fin, studentRecord, kRecordLength);
         valueAssign(studentRecord,
@@ -206,7 +214,8 @@ int main() {
                     kRecordLength,
                     i);
     }
-    fileOutput(fileOut, kStudentCount, exam1scores,
+    fileOutput(fileOut, kStudentCount,
+               exam1scores,
                exam2scores,
                exam3scores,
                quiz1scores,
@@ -218,6 +227,7 @@ int main() {
                assignment4scores,
                assignment5scores);
 
+    //readStudentRecord(fin, studentRecord,kRecordLength);
 
     system("PAUSE");
     return 0;
@@ -229,12 +239,19 @@ bool openFileForRead(const string &file_name, ifstream &input_file_stream) {
 }
 
 bool readStudentRecord(ifstream &fin, float studentRecord[], const int recordSize) {
+    const string fileOut = "C:\\Users\\david\\Desktop\\e3_out.txt";
+    ofstream fout(fileOut, ios::out);
     int studentID;
     fin >> studentID;
+    fout << studentID;
     char studentName;
     fin >> studentName;
+    fout << studentName;
+
     for (int i = 0; i < recordSize; ++i) {
         fin >> studentRecord[i];
+        fout << studentRecord[i];
+
     }
     return true;
 }
