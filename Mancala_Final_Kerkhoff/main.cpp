@@ -226,11 +226,12 @@ void dropBeads(int input, int playerTurn, int skipBin){
             beadArray[input]++;
             i++;
         }
-        beadArray[input]+=1;
+        beadArray[i]+=1;
         i++;
         if (i == 14) {
             i = 0;
         }
+        
     }
     beadArray[input]=0;
 
