@@ -116,7 +116,7 @@ void fileOutput(const string fileOut,
                 int i) {
     ofstream fout(fileOut);
     fout << " #"
-         << setw(6) << "Name"
+         << setw(6) << "Derp"
          << setw(8) << "E 1"
          << setw(8) << "E 2"
          << setw(8) << "E 3"
@@ -212,7 +212,6 @@ int main() {
                    assignment4scores,
                    assignment5scores,
                    i);
-        fout << endl;
     }
     //readStudentRecord(fin, studentRecord,kRecordLength);
 
