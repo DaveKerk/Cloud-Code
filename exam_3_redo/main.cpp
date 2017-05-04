@@ -27,17 +27,17 @@ int main()
     const  int kStudentCount = 20;
     const  int kRecordLength = 11;
     string studentName[kStudentCount];
-/*	float  exam1scores[kStudentCount];
+	float  exam1scores[kStudentCount];
 	float  exam2scores[kStudentCount];
 	float  exam3scores[kStudentCount];
 	float  quiz1scores[kStudentCount];
-	float  quiz2scores[kStudentCount];*/
-    //float  quiz3scores[kStudentCount];
-    //float  assignment1scores[kStudentCount];
-    //float  assignment2scores[kStudentCount];
-    //float  assignment3scores[kStudentCount];
-    //float  assignment4scores[kStudentCount];
-    //float  assignment5scores[kStudentCount];
+	float  quiz2scores[kStudentCount];
+    float  quiz3scores[kStudentCount];
+    float  assignment1scores[kStudentCount];
+    float  assignment2scores[kStudentCount];
+    float  assignment3scores[kStudentCount];
+    float  assignment4scores[kStudentCount];
+    float  assignment5scores[kStudentCount];
     float  studentRecord[kRecordLength];
     const string fileName = "C:\\Users\\david\\Desktop\\ScoresE3.txt";
     ifstream fin;
