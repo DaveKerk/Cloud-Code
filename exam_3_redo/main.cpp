@@ -89,30 +89,26 @@ int main() {
              << setw(8) << "A Avg"
              << setw(8) << "T Avg"
              << setw(4) << "G" << endl;
+        for (int j = 0; j < kStudentCount; ++j) {
+            fout << setw(2) << j + 1
+                 << setw(4) << studentName[j]
+                 << setw(10) << exam1scores[j]
+                 << setw(8) << exam2scores[j]
+                 << setw(8) << exam3scores[j]
+                 << setw(8) << quiz1scores[j]
+                 << setw(8) << quiz2scores[j]
+                 << setw(8) << quiz3scores[j]
+                 << setw(8) << assignment1scores[j]
+                 << setw(8) << assignment2scores[j]
+                 << setw(8) << assignment3scores[j]
+                 << setw(8) << assignment4scores[j]
+                 << setw(8) << assignment5scores[j]
+                 
 
-        fout << setw(16) << exam1scores[0]
-             << setw(8) << exam2scores[0]
-             << setw(8) << exam3scores[0]
-             << setw(8) << quiz1scores[0]
-             << setw(8) << quiz2scores[0]
-             << setw(8) << quiz3scores[0]
-             << setw(8) << assignment1scores[0]
-             << setw(8) << assignment2scores[0]
-             << setw(8) << assignment3scores[0]
-             << setw(8) << assignment4scores[0]
-             << setw(8) << assignment5scores[0] << endl;
 
-        fout << setw(16) << exam1scores[2]
-             << setw(8) << exam2scores[2]
-             << setw(8) << exam3scores[2]
-             << setw(8) << quiz1scores[2]
-             << setw(8) << quiz2scores[2]
-             << setw(8) << quiz3scores[2]
-             << setw(8) << assignment1scores[2]
-             << setw(8) << assignment2scores[2]
-             << setw(8) << assignment3scores[2]
-             << setw(8) << assignment4scores[2]
-             << setw(8) << assignment5scores[2] << endl;
+                 << endl;
+
+        }
     }
 
     system("PAUSE");
