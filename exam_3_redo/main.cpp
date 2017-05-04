@@ -24,6 +24,58 @@ bool readStudentRecord(ifstream &input_file_stream, int &studentID,
                        string &studentName, float studentRecord[],
                        const int recordSize);
 
+// Return the average of the exams of a given student.
+// studentID = The student ID of interest [use as an index] (input).
+// exam1scores = The scores of exam 1 for all students (input).
+// exam2scores = The scores of exam 2 for all students (input).
+// exam3scores = The scores of exam 3 for all students (input).
+float examAverage(const int studentID, const float exam1scores[],
+                  const float exam2scores[], const float exam3scores[]);
+
+// Return the average of the quizzes of a given student.
+// studentID = The student ID of interest [use as an index] (input).
+// quiz1scores = The scores of quiz 1 for all students (input).
+// quiz1scores = The scores of quiz 2 for all students (input).
+// quiz1scores = The scores of quiz 3 for all students (input).
+float quizAverage(const int studentID, const float quiz1scores[],
+                  const float quiz2scores[], const float quiz3scores[]);
+
+// Return the average of the assignments of a given student.
+// studentID = The student ID of interest [use as an index] (input).
+// assignment1scores = The scores of assignment 1 for all students (input).
+// assignment2scores = The scores of assignment 2 for all students (input).
+// assignment3scores = The scores of assignment 3 for all students (input).
+// assignment4scores = The scores of assignment 4 for all students (input).
+// assignment5scores = The scores of assignment 5 for all students (input).
+float assignmentAverage(const int studentID,
+                        const float assignment1scores[],
+                        const float assignment2scores[],
+                        const float assignment3scores[],
+                        const float assignment4scores[],
+                        const float assignment5scores[]);
+
+// Return the student’s final average that needs to use the following equation:
+// The final average = examAverage*0.5 + quizAverage*0.3 + assignmentAverage*0.2
+// examAverage = The exam average [use examAverage as a helping function to
+// calculate such an average]. (input)
+// quizAverage = The quiz average [use quizAverage as a helping
+// function to calculate such an average]. (input)
+// assignmentAverage = The assignment average [use assignmentAverage as a helping
+// function to calculate such an average]. (input)
+float studentAverage(const float examAverage, const float quizAverage,
+                     const float assignmentAverage);
+
+// Return the student’s final grade that needs to use the following equation:
+// A if score >= 90
+// B if 90 > score >= 80
+// C if 80 > score >= 70
+// D if 70 > score >= 60
+// F if score < 60
+// score = The final score of the student [use the studentAverage to
+// calculate it]. (input)
+char studentGrade(const float score);
+
+
 int main() {
     const int kStudentCount = 20;
     const int kRecordLength = 11;
@@ -61,15 +113,15 @@ int main() {
             quiz3scores[i] = studentRecord[5];
             assignment1scores[i] = studentRecord[6];
             assignment2scores[i] = studentRecord[7];
-            assignment3scores[i] = studentRecord[8];;
+            assignment3scores[i] = studentRecord[8];
             assignment4scores[i] = studentRecord[9];
             assignment5scores[i] = studentRecord[10];
 
-            fout << studentID << " " << studentName[i];
+/*            fout << studentID << " " << studentName[i];
             for (int j = 0; j < kRecordLength; j++) {
                 fout << " " << studentRecord[j];
             }
-            fout << endl;
+            fout << endl;*/
         }
         fout << " #"
              << setw(6) << "Name"
@@ -89,7 +141,15 @@ int main() {
              << setw(8) << "A Avg"
              << setw(8) << "T Avg"
              << setw(4) << "G" << endl;
+
+
         for (int j = 0; j < kStudentCount; ++j) {
+            float examAvg = examAverage(j, exam1scores, exam2scores, exam3scores);
+            float quizAvg = quizAverage(j, quiz1scores, quiz2scores, quiz3scores);
+            float assignmentAvg = assignmentAverage(j, assignment1scores, assignment2scores, assignment3scores,
+                                                    assignment4scores,
+                                                    assignment5scores);
+            float studentAvg = studentAverage(examAvg, quizAvg, assignmentAvg);
             fout << setw(2) << j + 1
                  << setw(4) << studentName[j]
                  << setw(10) << exam1scores[j]
@@ -103,15 +163,16 @@ int main() {
                  << setw(8) << assignment3scores[j]
                  << setw(8) << assignment4scores[j]
                  << setw(8) << assignment5scores[j]
-                 
-
-
+                 << setw(12) << setprecision(4) << examAvg
+                 << setw(8) << setprecision(4) << quizAvg
+                 << setw(8) << setprecision(4) << assignmentAvg
+                 << setw(8) << setprecision(4) << studentAvg
+                 << setw(4) << studentGrade(studentAvg)
                  << endl;
 
         }
     }
 
-    system("PAUSE");
     return 0;
 }
 
@@ -130,4 +191,65 @@ bool readStudentRecord(ifstream &fin, int &studentID,
     }
 
     return true;
+}
+
+float
+examAverage(const int studentID, const float exam1scores[], const float exam2scores[], const float exam3scores[]) {
+    float examAverage;
+    examAverage =
+            (exam1scores[studentID] +
+             exam2scores[studentID] +
+             exam3scores[studentID]) / 3;
+
+    return examAverage;
+}
+
+float
+quizAverage(const int studentID, const float quiz1scores[], const float quiz2scores[], const float quiz3scores[]) {
+    float quizAverage =
+            (quiz1scores[studentID] +
+             quiz2scores[studentID] +
+             quiz3scores[studentID]) / 3;
+
+    return quizAverage;
+}
+
+float assignmentAverage(const int studentID, const float assignment1scores[], const float assignment2scores[],
+                        const float assignment3scores[], const float assignment4scores[],
+                        const float assignment5scores[]) {
+    float assignmentAverage =
+            (assignment1scores[studentID] +
+             assignment2scores[studentID] +
+             assignment3scores[studentID] +
+             assignment4scores[studentID] +
+             assignment5scores[studentID]) / 5;
+
+    return assignmentAverage;
+}
+
+float studentAverage(const float examAverage, const float quizAverage, const float assignmentAverage) {
+    float studentAverage =
+            (examAverage * 0.5) +
+            (quizAverage * 0.3) +
+            (assignmentAverage * 0.2);
+
+    return studentAverage;
+}
+
+char studentGrade(const float score) {
+    char studentGrade;
+
+    if (score >= 90) {
+        studentGrade = 'A';
+    } else if (score >= 80) {
+        studentGrade = 'B';
+    } else if (score >= 70) {
+        studentGrade = 'C';
+    } else if (score >= 60) {
+        studentGrade = 'D';
+    } else {
+        studentGrade = 'F';
+    }
+
+    return studentGrade;
 }
