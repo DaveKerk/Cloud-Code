@@ -219,26 +219,28 @@ bool gameOverCheck() {
 //    }
 //}
 
-void dropBeads(int input, int playerTurn, int skipBin){
+void dropBeads(int input, int playerTurn, int skipBin) {
     int i = input;
-    while (i < beadArray[input]){
-        if (input == skipBin){
+    while (i < (beadArray[i] + i)) {
+        if (i == skipBin) {
             beadArray[input]++;
             i++;
         }
-        beadArray[i]+=1;
+        beadArray[i] += 1;
         i++;
         if (i == 14) {
             i = 0;
         }
-
     }
-    beadArray[input]=0;
+    if (beadArray[i-1] > 0) {
+        dropBeads(i-1, playerTurn, skipBin);
+    }
+    beadArray[input] = 0;
 
 }
 
 void getStartingBin(int playerTurn) {
-    int skipBin = -1;
+    int skipBin;
     bool tryAgain = true;
 
     if (playerTurn % 2 == 0) {
@@ -256,8 +258,10 @@ void getStartingBin(int playerTurn) {
         cin >> holdNumber;
         if (holdNumber >= 6 && (playerTurn % 2) != 0) {
             cout << "Invalid input!" << endl << "Please try again." << endl;
-        } else if (holdNumber < 7 && holdNumber == 13 && playerTurn == 2) {
+            cout << "player one" << endl;
+        } else if ((holdNumber < 7 || holdNumber == 13) && (playerTurn % 2) == 0) {
             cout << "Invalid input!" << endl << "Please try again." << endl;
+            cout << "player two" << endl;
         } else {
             dropBeads(holdNumber, playerTurn, skipBin);
             tryAgain = false;

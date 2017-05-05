@@ -163,10 +163,10 @@ int main() {
                  << setw(8) << assignment3scores[j]
                  << setw(8) << assignment4scores[j]
                  << setw(8) << assignment5scores[j]
-                 << setw(12) << setprecision(4) << examAvg
-                 << setw(8) << setprecision(4) << quizAvg
-                 << setw(8) << setprecision(4) << assignmentAvg
-                 << setw(8) << setprecision(4) << studentAvg
+                 << setw(12) << examAvg
+                 << setw(8) << quizAvg
+                 << setw(8) << assignmentAvg
+                 << setw(8) << studentAvg
                  << setw(4) << studentGrade(studentAvg)
                  << endl;
 
@@ -253,3 +253,4 @@ char studentGrade(const float score) {
 
     return studentGrade;
 }
+
